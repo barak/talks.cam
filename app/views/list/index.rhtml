@@ -1,0 +1,70 @@
+<%= logo @list, :medium %>
+<h1><%= link_list @list %></h1>
+
+<p class='actions'>
+	<%= add_list_to_list_link %>
+	<%= subscribe_by_email_link %>
+	
+<% if @list.editable? %>
+	<%= link_to 'Edit this list', :controller => "list", :action => "edit", :id => @list  %>
+<% end %>
+</p>
+
+<%= @list.details_filtered %>
+
+<% if @list.ex_directory? %>
+	<p>This list is ex-directory.  This means that it does not appear in the index.  Note that, like with a telephone, people can still access the list by guessing its number.  Note that, unlike with a telephone, guessing the number is a trivial challenge.</p>
+<% end %>
+
+<table width='100%'>
+	<tr>
+		<td  width='50%'>
+			<h2>Other views</h2>
+			<ul>
+				<li><%= link_to 'Create Custom View', :controller => 'custom_view', :action => 'index', :list => @list %></li>
+				<li><%= link_to 'Plain text', list_url(:id => @list, :action => 'text') %></li>
+				<li><%= link_to 'Subscribe using ical/vcal', :controller => 'show', :action => 'ics', :id => @list, :only_path => false, :protocol => 'webcal://'   %> (<%= document 'Help with icalendar' %>)</li>
+			</ul>
+			<p>You can include this list in your own website. Read the <%= document 'syndicating talks', false, 'Instructions on how to include a list in your site' %> and then click on 'Create Custom View' above to get started.</p>
+			<p>There is an <%= link_to 'RSS feed', list_url(:id => @list, :action => 'rss' )%> but it is buggy (character encoding issues).</p>
+		</td>
+		<td width='50%'>
+			<h2>List Managers</h2>
+			<p>Each talk has an organiser.  Please contact them in the first instance if you have a query about a particular talk.  Only contact one of the people below if you have a question about the list, such as whether your talk or series could be added.</p>
+			<ul id='managers'>
+				<% for user in @list.users %>
+					<li><%= link_user user %></li>
+				<% end %>
+			</ul>
+			<p>(In order to see the manager's details, such as their e-mail, you will need to have an account and log in)</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h2>Lists included in this list</h2>
+			<ul>
+			<% for list in @list.children.sort_by { |list| list.name } %>
+				<li><%= link_list list %></li>
+			<% end %>
+			</ul>
+			<% if @list.children.empty? %>
+				<p>This list does not include any other list</p>
+			<% end %>
+		</td>
+		<td>
+			<h2>Lists that include this list</h2>
+			<ul>
+			<% for list in @list.parents.sort_by { |list| list.name } %>
+				<% next if list.ex_directory? & !list.editable? %>
+				<li><%= link_list list %></li>
+			<% end %>
+			</ul>
+			<% if @list.parents.empty? %>
+				<p>This list is not included in any other list</p>
+			<% end %>
+			<% unless User.current && User.current.administrator? %>
+			<p>Note that ex-directory lists are not shown.</p>
+			<% end %>
+		</td>
+	</tr>
+</table>

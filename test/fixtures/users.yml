@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+vic:
+  id: 1
+  email: vic@talks.cam
+  name: Vic the test user
+  password: password
+  last_login: <%= 6.months.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  ex_directory: 0
+jim:
+  id: 2
+  email: jim@talks.cam
+  name: Jim the test user
+  password: password
+  last_login: <%= 1.minute.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  ex_directory: 0
+cambridge:
+  id: 3
+  email: crsid@cam.ac.uk
+  crsid: crsid
+  name: with existing crsid
+  affiliation: somewhere
+withcrsid:
+  id: 4
+  crsid: testid
+  name: john jones
+  email: john@talks.cam
+administrator:
+  id: 5
+  name: administrator
+  email: administrator@talks.cam
+  administrator: true
+seriesowner:
+  id: 6
+  name: Series Owner
+  email: seriesowner@talks.cam
+  password: password
+  administrator: false

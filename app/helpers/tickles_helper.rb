@@ -1,0 +1,2 @@
+module TicklesHelper
+end

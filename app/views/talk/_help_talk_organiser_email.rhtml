@@ -1,0 +1,14 @@
+<div class='help'>
+	<p>Please enter the email address of the person who should be contacted if there are any enquiries about this talk.</p>
+
+	<p>Note that this person will <em>not</em> automatically be given the ability to edit this event unless they are one of the managers below</p>
+
+	<p>As a short cut, you can just click on one of these people:</p>
+	<ul>
+	<% for user in @list.users %>
+		<li><%= update_field 'talk_organiser_email', "#{user.name}, #{user.email}", user.email %></li>
+	<% end %>
+	</ul>
+</div>
+
+<div style='height:12.7em;'>&nbsp;</div>

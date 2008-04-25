@@ -1,0 +1,8 @@
+<h2>Lists managed by <%= @user.name %></h2>
+
+<ul>
+<% for list in @user.lists.sort_by { |list| list.name } %>
+	<li><%= link_list list %> [<%= link_to 'Add a new talk', :controller => 'talk', :action => 'create', :id => list %>]</li>
+<% end %>
+	<li><%= render :partial => 'list/add_list' %></li>
+</ul>

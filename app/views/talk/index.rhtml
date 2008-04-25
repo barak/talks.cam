@@ -1,0 +1,45 @@
+<div class='vevent'>
+	<%= logo(@talk, :medium) %>
+	<h1 class='summary'><%= @talk.title %></h1>
+	<p class='actions'>
+		<%= add_talk_to_list_link  %>
+		<%= link_to 'Download to your calendar using vCal', :action => 'vcal', :id => @talk %>
+		<% if @talk.editable? %>
+			<%= link_to 'Edit this talk', :controller => "talk", :action => "edit", :id => @talk  %>
+			<%= link_to 'Delete this talk', :controller => 'talk', :action => 'delete', :id => @talk %>
+		<% end %>
+	</p>
+		
+	<ul class='details'>
+		<li><%= image_tag 'user.jpg' %><%= link_to_if @talk.speaker, @talk.name_of_speaker, { :controller => "user", :action => "show", :id => @talk.speaker  } %></li>
+		<li><%= image_tag 'clock.jpg' %><%= format_time_of_talk @talk %></li>
+		<li><%= image_tag 'house.jpg' %><%= link_list @talk.venue %>.</li>
+	</ul>
+
+		<p>If you have a question about this talk, please contact <%= link_user @talk.organiser %>.</p>
+		
+		<% if @talk.special_message %>
+			<p class='urgent'><%= @talk.special_message %></p>
+		<% end %>
+
+		<%= @talk.abstract_filtered %>
+		
+		<p>This talk is part of the <%= link_list @talk.series %> series.</p>
+		
+		<%= render :partial => 'shared/tell_a_friend', :object => @talk %>
+		
+		<h2>This talk is included in these lists:</h2>
+		<ul>
+		<% for list in @talk.lists.uniq.sort_by { |list| list.name } %>
+			<% next if list.ex_directory? & !list.editable? %>
+			<li><%= link_list list %></li>
+		<% end %>
+		</ul>
+		<% if @talk.lists.empty? %>
+			<p>This talk is not included in any other list</p>
+		<% end %>
+		<% unless User.current && User.current.administrator? %>
+		<p>Note that ex-directory lists are not shown.</p>
+		<% end %>
+
+</div>

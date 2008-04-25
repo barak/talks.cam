@@ -1,0 +1,42 @@
+<h1>Search for a talk</h1>
+<%= render :partial => 'search' %>
+
+<h1>Lists</h1>
+<% if @lists.empty? %>
+<p>No lists found.</p>
+<% end %>
+
+<%= render :partial => 'list_result', :collection => @lists %>
+
+<h1>Upcoming Talks</h1>
+
+<% if @future_talks.empty? %>
+<p>No upcoming talks found.</p>
+<% end %>
+
+<%= render :partial => 'result', :collection => @future_talks %>
+
+<% unless @future %>
+<h1>Past Talks</h1>
+
+<% if @past_talks.empty? %>
+<p>No past talks found.</p>
+<% end %>
+
+<%= render :partial => 'result', :collection => @past_talks %>
+
+<% end %>
+
+<h1>Venues</h1>
+<% if @venues.empty? %>
+<p>No venues found.</p>
+<% end %>
+
+<%= render :partial => 'list_result', :collection => @venues %>
+
+<h1>People</h1>
+<% if @users.empty? %>
+<p>No users found.</p>
+<% end %>
+
+<%= render :partial => 'user_result', :collection => @users %>

@@ -1,0 +1,5 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+three_has_two:
+  id: 1
+  list_id: 3
+  child_id: 2

@@ -1,0 +1,12 @@
+<div class='vevent simpletalk click'>
+	<% unless simple_talk.series == @list %>
+		<p class='series'><%= link_list(simple_talk.series)%></p>
+	<% end %>
+	<h2 class='summary'><%= link_talk simple_talk %></h2>
+	<% if simple_talk.special_message %>
+		<p class='urgent'><%= simple_talk.special_message %></p>
+	<% end %>
+	<p class='details'><%= image_tag 'user.jpg' %><%= simple_talk.name_of_speaker %>.</p> 
+	<p class='location'><%= image_tag 'house.jpg' %><%= link_list simple_talk.venue %>.</p>
+	<p><%= image_tag 'clock.jpg' %><%= format_time_of_talk simple_talk %></p>
+</div>

@@ -1,0 +1,646 @@
+/** Global settings **/
+html, body {
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif; 
+	}
+
+	a {text-decoration:none; }
+	a:link {color: #003399;}
+	a:visited {color: #003399;}
+	a:link:hover, a:visited:hover {
+		color: #cc3333;
+		text-decoration: underline;
+		}
+	a[href]:active {color: #cc0000;}
+	a img { border: none;}
+	
+	h1, h2 {
+		font-weight: bold;
+		font-size: 1em;
+		color: #990000;
+		border-bottom:  2px solid #ccc;
+		}
+	
+	h1 a, h1 a:visited, h2 a, h2 a:visited {
+		color: #990000;
+		}
+	
+	h3, h4 {
+		font-weight: bold;
+		font-size: 100%;
+		color: #000;
+	}
+
+	h4 {
+		font-style: italic
+	}
+	
+	input:focus, textarea:focus{
+		background-color: #FFFFE0;
+	}
+	
+	/** Default for all tables **/
+	td {
+		vertical-align: top; 		
+	}
+	
+	/** This is for the big search box **/
+	h1.search {
+		margin: 0.5em 0 0.5em 0;
+	}
+	form.search {
+		padding-bottom: 0.2em;
+	}
+		form.search input[type='text'] {
+			width: 400px;
+			margin: 0px;
+		}
+		form.search input[type='submit'] {
+			width: 50px;
+			margin: 0 0 0 7px;
+		}
+		form.search p.examples {
+			padding: 0;
+			margin: 0 0 0.3em 0;
+			font-size: 0.8em;
+			color: #555;
+		}
+		form.search p.settings {
+			padding: 0;
+			margin: 0;
+			font-size: 0.8em;
+		}
+		form.search p.checked {
+			color: #990000;
+		}
+		form.search p a {
+			width: 170px;
+			padding: 0;
+			margin-right: 230px;
+		}
+	
+	/** This is for the small search box **/
+	form#smallsearch {
+		width: 100%;
+	}
+		form#smallsearch input[type='text'] {
+			width: 115px;
+			display: inline;
+		}
+		
+		form#smallsearch input[type='submit'] {
+			width: 30px;
+			display: inline;
+		}
+		
+		form#smallsearch a {
+			display: inline;
+			margin-right: 33px;
+			padding: 0;
+		}
+		
+		
+	/** For text boxes that have no data in **/
+	input.blur {
+		color: grey;
+		text-align: center;
+	}
+	
+	textarea.blur {
+		color: grey;
+		text-align: center;
+	}
+
+	/*For text to be printed but not appear on screen*/
+	.noshow, .noshowsmall, div.docbox {
+		display: none;
+		}
+	
+	/* Urgent things */
+	.urgent {
+		font-weight: bold;
+		color: #990000;
+	}	
+	
+	/*Blue/grey lines, bottom carries space above*/
+	.line {
+		font-size:1px; 
+		line-height:1px; 
+		height: 4px; 
+		background: #09c; 
+		border-bottom: solid 2px #ccc; 
+		width:100%; 
+		padding:0; 
+		margin: 0;
+		}
+	
+	/** 'Action' links **/
+	p.actions {
+		margin-top: 0;
+	}
+
+	p.actions a, a.action {
+		font-size: 80%;
+		margin-right: 10px;
+	/**	color: #cc3333; **/
+	}
+
+	p.actions a:hover, a:hover.action  {
+	
+		text-decoration: none;
+		/** color: #003399; **/
+	}
+
+/** Navigation bar **/
+#navigation {
+	height: 18px; 
+	position: relative; 
+	background: url("/images/navbg.gif") repeat-x top left #09c; 
+	margin: 0; 
+	}
+	
+	/* Extra links for accesibility */
+	#navigation .skiplink { 
+		display: none; 
+		}
+	
+	#navigation #insert {
+		float: right; 
+		display: block; 
+		}
+/** Header logo table **/
+#header {
+	width:100%; 
+	padding:0; 
+	vertical-align: bottom;
+	}
+	
+	#header td.identifier {
+		width: 198px;
+		text-align: left;
+		padding: 0;
+	}
+	
+	#header td.deptitle {
+		width: 68px;
+		text-align: right;
+		}
+	
+	#header td.flash {
+		vertical-align: middle;
+		text-align: center;
+	}
+	
+		#header td.flash div {
+			padding: 0.5em;
+			text-align: center;	
+		}
+		
+/*breadcrumb navigation styles*/
+#bread p {
+	padding-top: 0px; 
+	margin-top: 3px;
+	font-size: 0.8em;
+	}
+	
+	#bread p a {
+		font-weight: bold; 
+		}
+
+/** Main content div **/
+#content {
+	margin: 12px 0 12px 0; 
+	width: 100%; 
+	}
+	
+/*footer style (to be applied to paragraph)*/
+.footer, .rfooter {
+	font-size: 80%; 
+	margin: 6px 0 6px  0;
+}
+	.footer {
+		float: left;
+	}
+	.rfooter {
+		float: right;
+	}
+
+/** General settings for left column**/
+
+/** The left navigation bar **/
+td.left {
+	text-align: right;
+	padding: 0 1em 0 0; 
+	font-size: 0.75em;
+	margin:0; 
+	width:200px;
+	}
+	
+	td.left h1 {
+		margin: 0;
+		}
+	
+	td.left h2 {
+		margin: 2em 0 0 0;
+		display: block;
+		width: 100%;
+		padding-bottom: 0.2em;
+		}	
+	
+	/** Nudge the red link arrows **/
+	td.left img {
+		position: relative;
+		padding-left: 0.4em;
+		top: 0.4em;
+	}
+	
+	div.fullwidthlinks a, .front td.main {
+		display: block;
+		width: 100%;
+		padding-bottom: 0.2em;
+		}
+
+	div.fullwidthlinks a:hover, .front td.main p.list a:hover {
+		background: #FFFFCC;
+		}
+
+/** The default application layout **/
+body.application table#container {
+	width: 100%;
+}
+	body.application table#container td.left {
+		width: 13em;
+		border-right: 1px solid #eee;
+	}
+	
+	td.centre {
+		padding: 0 1em 1em 1em;
+	}
+		td.centre h1 {
+			font-size: 1.2em;
+			padding: 0;
+			margin: 0;
+		}
+
+/** Front page and search page**/
+.front table {
+	margin: 12px 0 0 0; 
+	padding:0; 
+	border: none;
+	border-collapse:	collapse;
+	}
+	
+	.index table {
+		width:750px; 
+		margin:auto; /** Keeps it centred**/		
+	}
+		
+	.front td.left, .front td.cure {
+		border-right: 2px solid #666;
+	}
+	
+		.front td.cure {
+			padding-top: 0px;
+			vertical-align: bottom;
+			text-align: right;
+		}
+	
+	/** The main content area **/
+	.front td.main {
+		padding: 0 0 0 1em;
+	}
+	
+		/** The featured talks **/
+		.front td.main h2 {
+			font-size: 0.8em;
+			font-weight: normal;
+			margin: 2em 0 0 0;
+			border-bottom: none;
+		}
+			
+			/** Individual talks **/
+			.front td.main div.talk {
+				padding: 0.2em 0 0.2em 0;
+			}
+			
+				.front td.main div.talk h3 {
+					font-size: 1em;
+					font-weight: normal;
+					margin: 0 0 0 40px;
+				}
+			
+				.front td.main div.talk p {
+					margin: 0 0 0 40px;
+				}
+		
+				.front td.main div.talk img {
+					float: left;
+					max-width: 32px;
+				}
+			
+		/** Search results **/
+		.front td.main span.count {
+			color: black;
+			font-size: 0.8em;
+		}
+		.front td.main div.result {
+			padding: 0.5em 0 0.5em 0;
+		}
+			
+			.front td.main div.result h2 {
+				font-size: 1em;
+				font-weight: bold;
+				margin: 0 0 0 0px;
+				border-bottom: none;
+			}
+		
+			.front td.main div.result p {
+				font-size: 0.8em;
+				margin: 0 0 0 0px;
+			}
+
+/** Standard list view **/
+.list table {
+	width: 100%;
+}
+	/** The left login box etc **/
+	.list td.left {
+		width: 13em;
+		border-right: 1px solid #eee;
+	}
+	
+	.list td.left form {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.list td.left input {
+		width: 100%;
+		
+	}
+
+	/** The main talks area **/
+	.list td.main {
+		padding: 0 1em 1em 1em;
+	}
+		.list td.main h1 {
+			font-size: 1.2em;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.list td.main img.logo, .list td.centre img.logo {
+			float: right;
+			background: white;
+			padding: 0 0 5px 5px;
+		}
+		
+		.list td.main p.count {
+			font-size: 0.8em;
+		}
+		
+		/** Standard talk list **/
+		.list td.main div.simpletalk {
+			padding: 0.5em 0 0.5em 0;
+		}
+						
+			.list td.main div.simpletalk h2 {
+				color: #990000;
+				font-size: 1em;
+				font-weight: normal;
+				margin: 0 0 0 0px;
+				border-bottom: none;
+			}
+			
+			.list td.main div.simpletalk h2 a, .list td.main div.simpletalk h2 a:visited {
+				color: #990000;
+			}
+			
+			.list td.main div.simpletalk img {
+				position: relative;
+				top: 2px;
+				margin-right: 2px;
+			}
+		
+			.list td.main div.simpletalk p {
+				font-size: 0.8em;
+				margin: 0 0 0 0em;
+			}
+			
+				.list td.main div.simpletalk p a, .list td.main div.simpletalk p a:visited {
+					color: black;
+				}
+			
+				.list td.main div.simpletalk p.series {
+					font-size: 0.6em;
+				}
+
+	/** The related box **/
+	td.related {
+		width: 13em;
+		border-left: 1px solid #eee;
+		text-align: left;
+		padding: 0 0 0 1em; 
+		font-size: 0.75em;
+		margin:0;
+	}
+		td.related a  {
+			display: block;
+			width: 100%;
+			padding-bottom: 0.5em;
+			}
+
+			td.related a:hover  {
+				background: #FFFFCC;
+				}
+				
+/** The talks view **/
+.talk ul.details img {
+	position: relative;
+	top: 2px;
+	margin-right: 2px;
+}
+
+.talk ul.details {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 1em;
+	text-indent: -1em;
+}
+
+.user img.logo {
+	float: right;
+	background: white;
+	padding: 0 0 5px 5px;
+}
+
+p.message {
+	text-align: center;
+	background: orange;
+	padding: 5px;
+}
+
+/* For the list edit page */
+form#editlist {
+	padding: 0;
+	margin: 0;
+}
+
+	form#editlist h3 { 
+		font-size: 0.6em; 
+		font-style: normal; 
+		border: none; 
+		margin: 1em 0 0 1px;  
+		}
+	
+	form#editlist input[type='text'] { 
+		width: 35em;
+		}
+
+	form#editlist textarea {
+		width: 35em;
+		height: 12em;
+	}
+
+/* For the talk edit page */
+
+form#edittalk {
+	padding: 0;
+	margin: 0;
+}
+
+	form#edittalk h3 { 
+		font-size: 0.6em; 
+		font-style: normal; 
+		border: none; 
+		margin: 1em 0 0 1px;  
+		}
+	
+	form#edittalk .wide { 
+		width: 35em;
+		}
+		
+	form#edittalk p.emailcheck {
+		margin: 0;
+		font-size: 0.6em; 
+	}
+	
+td#edit_talk_help {
+	vertical-align: bottom;
+}
+	
+	td#edit_talk_help .help {
+		padding: 0.5em;
+		background-color: #FFFFE0;
+	}
+	
+	td#edit_talk_help div.help p {
+		padding: 0 0 0.5em 0;
+		margin: 0;
+		background-color: #FFFFE0;
+	}
+
+/* For the index pages */
+ul.indexselector {
+
+}
+	ul.indexselector li {
+		display: inline;
+		padding: 0.1em;
+	}
+	
+	ul.indexselector li.selected {
+		background-color: #FFFFE0;
+		text-decoration: underline;
+		font-weight: bold;
+	}
+	
+		ul.indexselector li a {
+			font-weight: normal;
+			text-decoration: none;
+		}
+		
+div#minimal_content { padding: 0 0.5em 1em 0.5em }
+	
+div.old_talks div.talklist_date { background-color: #dddddd; font-weight: bold; margin: 2em 0em 0em 0em;}
+div.old_talks p { margin: 0.5em 0 0 0; }
+div.old_talks div.talklist_header { font-weight: bold; }
+
+div.table table {border-collapse: collapse;}
+div.table tr.header { color: #fff; background-color: #0099cc; }
+div.table th { padding: 0.5em 0.5em 0.5em 0.5em;}
+div.table td.standard { padding: 1em 0.5em 1em 0.5em;}
+div.table tr.even { background-color: #eeeeee; }
+div.table td.date { width: 6em;}
+div.table a { text-decoration:none; color: #000;}
+div.table a:visited { text-decoration:none; color: #000;}
+div.table a:hover 	{ text-decoration:underline; color: #003399;}
+div.table td.special { padding: 1em 0.5em 0em 0.5em;}
+div.table td.special_message { text-align: center; font-weight: bold; padding: 0em 0.5em 1em 0.5em; }
+
+div.simplewithlogo h2 { font-size: 1em; font-weight: normal; margin: 2em 0 0 0;	border-bottom: none;}
+div.simplewithlogo div.talk { padding: 0.2em 0 0.2em 0; }
+div.simplewithlogo div.talk h3 { font-size: 1em; font-weight: bold; margin: 0 0 0 40px; }
+div.simplewithlogo div.talk p { margin: 0 0 0 40px; }
+div.simplewithlogo div.talk img.logo { float: left; }
+div.simplewithlogo a 				{ text-decoration:none; color: #000;}
+div.simplewithlogo a:visited { text-decoration:none; color: #000;}
+div.simplewithlogo a:hover 	{ text-decoration:underline; color: #003399;}
+
+div.oneday table {border-collapse: collapse; border: 1px #000 solid;}
+div.oneday tr.header { color: #fff; background-color: #0099cc; }
+div.oneday th { padding: 0.5em 0.5em 0.5em 0.5em;}
+div.oneday td.standard { padding: 1em 0.5em 1em 0.5em;}
+div.oneday tr.even { background-color: #eee; }
+div.oneday td.time { width: 8em;}
+div.oneday td.special { padding: 1em 0.5em 0em 0.5em;}
+div.oneday td.special_message { text-align: center; font-weight: bold; padding: 0em 0.5em 1em 0.5em; }
+div.oneday a { text-decoration:none; color: #000;}
+div.oneday a:visited { text-decoration:none; color: #000;}
+div.oneday a:hover 	{ text-decoration:underline; color: #003399;}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+	display: inline;
+}
+
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div#tellafriend form {
+	display: inline;
+}
+
+.special_date {
+	background-color: #f00; 
+	color: #fff;
+}

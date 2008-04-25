@@ -1,0 +1,28 @@
+<h1>Listing tickles</h1>
+
+<table>
+  <tr>
+    <th>Created on</th>
+    <th>About</th>
+    <th>About type</th>
+    <th>Sender</th>
+    <th>Recipient email</th>
+    <th>Sender email</th>
+    <th>Sender name</th>
+    <th>Sender ip</th>
+  </tr>
+  
+<% for tickle in @tickles %>
+  <tr>
+    <td><%=h tickle.created_on %></td>
+    <td><%=h tickle.about_id %></td>
+    <td><%=h tickle.about_type %></td>
+    <td><%=h tickle.sender_id %></td>
+    <td><%=h tickle.recipient_email %></td>
+    <td><%=h tickle.sender_email %></td>
+    <td><%=h tickle.sender_name %></td>
+    <td><%=h tickle.sender_ip %></td>
+    <td><%= link_to 'Show', tickle_path(tickle) %></td>
+  </tr>
+<% end %>
+</table>

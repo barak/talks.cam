@@ -1,0 +1,11 @@
+<h1>Which list would you like to add a talk to?</h1>
+
+<p>Please only add an existing talk to talks.cam if you are the actual organiser of the talk or series, or have first asked their permission.</p>
+
+<p>Each talk can be part of many lists, but it needs one as its main 'home'.  This is usually a list that represents its series.</p>
+<ul id='lists'>
+	<%= render :partial => "add_talk_list", :collection => @lists.sort_by { |list| list.name } %>
+	<li><%= render :partial => 'list/add_list' %></li>
+</ul>
+
+<p>If you want to practice adding a talk to a series that no-one else sees, you can add it to <%=link_to User.current.personal_list.name, talk_url(:action => 'edit', :list_id => User.current.personal_list.id )%>.</p>

@@ -1,0 +1,18 @@
+<h1><%= @list.name %></h1>
+
+<ul>
+	<li><%= link_to 'Edit the name, description or picture of this list', list_details_url(:action => 'edit_details', :id => @list.id )%></li>
+	<li><%= link_to 'Add or remove a manager of this list', list_user_url(:action => 'edit', :list_id => @list.id )%></li>
+</ul>
+<ul>
+	<li><%= link_to 'Remove a list that has been included in this one', include_list_url(:action => 'edit', :list_id => @list.id )%></li>
+	<li><%= link_to 'Remove a talk that has been included in this one', include_talk_url(:action => 'edit', :list_id => @list.id )%></li>
+</ul>
+<ul>
+	<li><%= link_to 'Create a new talk on this list', talk_url(:action => 'new', :list_id => @list.id )%></li>
+</ul>
+<ul>
+	<li><%= link_to 'Delete this list', list_details_url(:action => 'destroy', :id => @list.id )%></li>
+</ul>
+
+<p><%= link_to "Return to #{@list.name}", list_url(:id => @list.id) %>.</p>

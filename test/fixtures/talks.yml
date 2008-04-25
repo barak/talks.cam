@@ -1,0 +1,63 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  title: Talk one
+  abstract: no abstract
+  special_message: no special message
+  venue_id: 5
+  series_id: 9
+  organiser_id: 2
+  start_time: <%= 1.hour.from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= 2.hours.from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+two:
+  id: 2
+  title: Talk two
+  venue_id: 5  
+  series_id: 9
+  start_time: <%= 2.hour.from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= 4.hours.from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+three:
+  id: 3
+  title: Talk three
+  venue_id: 5  
+  series_id: 9
+  start_time: <%= 1.day.from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= (1.day + 1.hour).from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+with_series:
+  id: 4
+  title: Talk four with series
+  venue_id: 5
+  series_id: 9
+  start_time: <%= 1.week.from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= (1.week + 1.hour).from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+with_venue:
+  id: 5
+  title: Talk five with venue
+  venue_id: 5
+  series_id: 9
+  start_time: <%= 1.year.from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= (1.year + 1.hour).from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+talk_in_the_past:
+  id: 6
+  title: Talk in the past
+  venue_id: 5
+  series_id: 9
+  start_time: <%= 1.year.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= (1.year - 1.hour).ago.strftime("%Y-%m-%d %H:%M:%S") %>
+talk_in_the_past:
+  id: 7
+  title: Ex-directory talk
+  venue_id: 5
+  series_id: 9
+  start_time: <%= 1.year.from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= (1.year + 1.hour).from_now.strftime("%Y-%m-%d %H:%M:%S") %>
+  ex_directory: true
+<% 1.upto(12) do |month| %>
+talk_in<%= month %>:
+  id: <%= 7+month %>
+  title: a talk in <%= month %>
+  venue_id: 5
+  series_id: 9
+  start_time: <%= Time.local(Time.now.year,month,1,0,1).strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= Time.local(Time.now.year,month,2,0,1).strftime("%Y-%m-%d %H:%M:%S") %>    
+<% end %>

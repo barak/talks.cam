@@ -1,0 +1,41 @@
+<div class='help'>
+	<% forthcoming_talks = @list.talks.find(:all,:conditions => ['start_time > NOW()'], :order => 'start_time ASC', :limit => 10) %>
+	<% unless forthcoming_talks.empty? %>
+	<p>For reference, these are the forthcoming dates of talks in this list:</p>
+	<ul>
+	<% forthcoming_talks.each do |talk| %>
+		<li><%= talk.date_string %> <%= talk.title[0...20] %>...</li>
+	<% end %>
+	</ul>
+	<% end %>	
+	<p>Please enter the date of the talk in the form YYYY/MM/DD e.g. 2007/12/13, or pick it out with this calendar:</p>
+
+	<div style='width:220px;' id="calendar-container"></div>
+	<script type="text/javascript">
+	  Calendar.setup(
+		{ 
+		  flat: "calendar-container", // ID of the parent element
+	      flatCallback: function(calendar) {
+		  	if (calendar.dateClicked) {
+				new Effect.Highlight('talk_date_string',{duration:5.0});
+				$('talk_date_string').value = calendar.date.getFullYear() + "/" + (calendar.date.getMonth()+1) + "/" + calendar.date.getDate();
+			}
+		  },
+		  dateStatusFunc: function(date,y,m,d) {
+			var dates_taken = [ <%= forthcoming_talks.map { |t| "\"#{t.date_string}\"" }.join(',') %> ];
+			var date_to_check = date.print('%Y/%m/%d');
+			if ( dates_taken.include(date_to_check) ) {
+				return 'special_date';
+			} else {
+				return false;
+			}
+		  },
+		  // our callback function
+		  firstDay: 1, // Monday
+		  date: $('talk_date_string').value // Set the initial date	
+	    }
+	  );
+	</script>
+</div>
+
+<div style='height:2em;'>&nbsp;</div>

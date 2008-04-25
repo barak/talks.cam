@@ -1,0 +1,22 @@
+<%= @tickle.sender_name %> (<%= @tickle.sender_email %>) thought you might be interested in this talk:
+
+Series: <%= @talk.series.name %>
+Title: <%= @talk.title %>
+Speaker: <%= @talk.name_of_speaker %>
+Date: <%=  @talk.start_time.strftime('%A %d %B %Y, %H:%M - ')+@talk.end_time.strftime('%H:%M') %>
+Venue: <%= @talk.venue && @talk.venue.name %>
+Abstract: <%= @talk.abstract %>
+
+You can find out more at:
+<%= @talk_url %>
+
+Or, if you have a talks.cam account, you can add this talk to your list:
+<%= @add_to_list_url %>
+
+If you don't have a talks.cam account, you can get one here:
+http://talks.cam.ac.uk/user/new
+
+If the technology works, clicking on the link below might download the details of the talk in a format that your calendar program understands:
+<%= @talk_ics_url %>
+
+If you think that this e-mail was sent inappropriately, please forward it to webmaster@talks.cam.ac.uk. We will use this code: <%= @tickle.id %> to figure out who sent it, and to take appropriate action.

@@ -1,0 +1,25 @@
+<h1>Welcome to talks.cam</h1>
+
+<% form_tag :action => 'do_new_user' do %>
+
+<p>I believe this is the first time you have logged into talks.cam.</p>
+
+<% unless @user.name && !@user.name.empty? && @user.affiliation && !@user.affiliation.empty? %>
+	<p>I would appreciate a few further details:</p>
+	<% unless @user.name && !@user.name.empty? %>
+		<p><b>Your full name:</b> <%= text_field_tag 'name','', :size => 50 %></p>
+	<% end %>
+	<% unless @user.affiliation && !@user.affiliation.empty? %>
+		<p><b>Your affiliation:</b> <%= text_field_tag 'affiliation','', :size => 50 %>(e.g. University of Cambridge)</p>
+	<% end %>
+<% end %>
+
+<p>A personal list has been created for you.  When you are logged in it can be found on the bar to the left.  You may also wish to add it to your bookmarks. You can use this list to keep track of talks, series or other lists that you are interested in.  Anytime you see a 'Add to your list(s)' link, click on it to add it to your list.</p>
+
+<p><b><%= check_box_tag 'send_email', value='1', checked = true %> Send emails reminding you of talks that you have added to your personal list to <%= @user.email %>.</b></p>
+
+<p>If you use Apple iCal, Mozilla Sunbird and Ximian Evolution, or have the Remote Calendars plug-in for Microsoft Outlook, then you can have talks in your list automatically listed in your calendar by using <%= link_to "this link", :controller => 'show', :action => 'ics', :id => @user.lists.first, :only_path => false, :protocol => 'webcal://'   %>.</p>
+
+<%= submit_tag 'Update your details and continue onto talks.cam'%>
+
+<% end %>

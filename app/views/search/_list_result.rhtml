@@ -1,0 +1,5 @@
+<div class='listresult'>
+<% number_of_talks = list_result.talks.count %>
+<% number_of_future_talks = list_result.talks.count( :conditions => ['start_time >= ?', @time_at_beginning_of_day ] ) %>
+<%= link_to list_result.name, list_url(:id => list_result) %> <span class='count'>&#8211; <%= pluralize number_of_talks, "talk" %> of which <%= number_of_future_talks %> are upcoming.</span>
+</div>

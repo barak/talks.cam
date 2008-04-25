@@ -1,0 +1,11 @@
+<h1><%= @user.name%></h1>
+
+<p>An e-mail is sent to <%= @user.email %> about each of the following lists:</p>
+
+<ul>
+<% for subscription in @subscriptions %>
+	<li><%= link_list(subscription.list) %> [<%= link_to 'Stop further emails', :action => 'destroy', :id => subscription.id %>]</li>
+<% end %>
+</ul>
+
+<p>You can be sent an e-mail reminder for other lists by going to that list, and then clicking on the 'send me e-mail reminders' link below the list's title.</p>

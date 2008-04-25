@@ -1,0 +1,23 @@
+<h1>Which lists would you like to include &#145;<%= @child.name %>&#146;?</h1>
+
+<p>Please check all the lists that you wish &#145;<%= @child.name %>&#146; to be part of, and click update</p>
+<%= form_tag :action => 'create', :child => @child  %>
+<table>
+	<% for list in @lists.sort_by { |list| list.name } %>
+	<tr>
+		<td>
+			<%= check_box_tag "add_to_list[#{list.id}]", 'add', list.talks.direct.include?(@child) %>
+			<%= hidden_field_tag "add_to_list[#{list.id}]", 'remove' %>
+		</td>
+	<td><%= list.name %></td></tr>
+	<% end %>
+</table>
+<%= submit_tag 'Update' %> or <%= link_to 'Cancel', talk_url(:id => @child ) %>
+</form>
+
+<h2>New List</h2>
+
+<p>If you like, you can create a new list:</p>
+<div id='lists'>
+<%= render :partial => 'list/add_list' %>
+</div>

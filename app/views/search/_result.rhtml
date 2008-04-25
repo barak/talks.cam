@@ -1,0 +1,5 @@
+<div class='result click'>
+<h2><%= link_talk result %></h2>
+<p><%= highlight( excerpt(result.abstract, @search, radius = 35, excerpt_string = "..."),@search) %></p>
+<p><%= result.series ? link_list(result.series) : 'Not part of a series' %>, <%= result.name_of_speaker %>. <%= result.date.to_formatted_s :long%>.</p>
+</div>

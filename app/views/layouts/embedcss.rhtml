@@ -1,0 +1,1 @@
+document.write("<%= stylesheet_link_tag('embedcss').gsub('"','\"').gsub("\n",'').gsub("\r",'') %><%= @content_for_layout.gsub('"','\"').gsub("\n",'') %><p class='talks'>Powered by <a href='http://talks.cam.ac.uk'>Talks.cam</a></p>");

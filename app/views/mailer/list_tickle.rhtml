@@ -1,0 +1,21 @@
+<%= @tickle.sender_name %> (<%= @tickle.sender_email %>) thought you might be interested in this list:
+
+Name: <%= @list.name %>
+Details: <%= @list.details %>
+
+<% unless @talks.empty? %>Some of the forthcoming talks on this list are:
+<% for talk in @talks %>* <%= talk.title %>
+<% end %><% end %>
+You can find out more at:
+<%= @list_url %>
+
+Or, if you have a talks.cam account, you can add this list to your list:
+<%= @add_to_list_url %>
+
+If you don't have a talks.cam account, you can get one here:
+http://talks.cam.ac.uk/user/new
+
+If the technology works, clicking on the link below might cause your calendar program to subscribe to this list of talks:
+<%= @list_webcal_url %>
+
+If you think that this e-mail was sent inappropriately, please forward it to webmaster@talks.cam.ac.uk. We will use this code: <%= @tickle.id %> to figure out who sent it, and to take appropriate action.

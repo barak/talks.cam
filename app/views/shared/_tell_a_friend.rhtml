@@ -1,0 +1,11 @@
+<div id='tellafriend'>
+<% form_for(:tickle, :url => tickles_path) do |f| %>
+	<%= f.hidden_field :about_id, :value => tell_a_friend.id %>
+	<%= f.hidden_field :about_type, :value => tell_a_friend.class %>
+	Tell a friend about this <%= tell_a_friend.class.to_s.downcase %>: <%= f.text_field :recipient_email %>
+  	<%= submit_tag "Send e-mail" %>
+<% end %>
+<script>
+Behaviour.register(tickle_rules);
+</script>
+</div>

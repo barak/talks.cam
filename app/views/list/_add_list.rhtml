@@ -1,0 +1,5 @@
+<% form_for(:list, :url => list_details_url(:action => 'create', :return_to => request.request_uri) ) do |f| %>
+	<%= f.text_field :name, :size => '30' %>
+	<%= submit_tag 'Create' %>
+	<script>Behaviour.register(add_list_rules);</script>
+<% end %>

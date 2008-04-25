@@ -1,0 +1,40 @@
+<h1>Tell <%= @tickle.recipient_email %> about '<%= (@tickle.about_type == 'Talk') ? link_talk(@tickle.about) : link_list(@tickle.about) %>'</h1>
+
+<% form_for(:tickle, :url => tickles_path) do |f| %>
+
+<%= f.hidden_field :about_id %>
+<%= f.hidden_field :about_type %>
+<% if @tickle.errors.on(:sender_ip) %>
+<p>Sorry, but in order to limit the risk of people abusing this system to send spam, only a limited number of messages per hour are permitted from any ip address. This has been exceeded for your ip. Please try again later.</p>
+
+<p><%= link_to 'Return to the previous page', (@tickle.about_type == 'Talk') ? talk_url(:id => @tickle.about) : list_url(:id => @tickle.about) %></p>
+<% else %>
+<p>
+  <b>Recipient's e-mail</b><br />
+  <%= f.text_field :recipient_email %><br/>
+  <%= error_message_on :tickle, :recipient_email, 'their e-mail ' %>
+</p>
+
+<p>
+  <b>Topic</b><br />
+  <%= (@tickle.about_type == 'Talk') ? link_talk(@tickle.about) : link_list(@tickle.about) %>
+</p>
+
+<p>
+  <b>Your name</b><br />
+  <%= f.text_field :sender_name %>
+  <%= error_message_on(:tickle, :sender_name, 'your name ') unless @tickle.sender_name == nil %>
+</p>
+
+<p>
+  <b>Your email</b><br />
+  <%= f.text_field :sender_email %>
+  <%= error_message_on(:tickle, :sender_email, 'your e-mail ') unless @tickle.sender_email == nil  %>
+</p>
+
+<p>
+  <%= submit_tag "Send e-mail" %> or <%= link_to 'Forget it.', (@tickle.about_type == 'Talk') ? talk_url(:id => @tickle.about) : list_url(:id => @tickle.about) %>
+</p>
+<% end %>
+
+<% end %>

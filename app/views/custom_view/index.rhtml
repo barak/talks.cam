@@ -1,0 +1,57 @@
+<h1><%= link_list(@custom_view.list)%></h1>
+
+<p>This page allows you to create your own customised view of the list. You may want to read <%= document 'syndicating talks', false, 'Instructions on creating a custom view of a list' %>.</p>
+
+<p>You must have javascript enabled for this page to work.</p>
+
+<p>Before using this facility to embed a feed in your own page, please read these <%= document 'warnings about the security of embedding feeds in your site' %>.</p>
+
+<p>Finally, there is a <%= document 'specification' %> that contains a little more detail about what to expect from this system.</p>
+
+<%= form_tag({:action => 'save'}, {:id => 'viewform'}) %>
+<%= hidden_field 'custom_view', 'list_id' %>
+	
+<h2>1. Do you want to limit what talks get shown?</h2>
+
+<p>Tick each that you wish to apply.</p>
+
+<%= check_box('view_parameters', 'limit_numbers') %>
+Show a maximum of <%= text_field 'view_parameters', 'limit', "size" => 3 %> talks.
+
+<div>
+	<%= check_box('view_parameters', 'limit_date') %>
+	Only show talks with a start time between <%= date_select 'view_parameters', 'start_time', :include_blank => true %> and <%= date_select 'view_parameters', 'end_time', :include_blank => true %>.
+</div>
+
+<div>
+	<%= check_box('view_parameters', 'limit_period') %>
+	Only show the previous <%= select 'view_parameters', 'seconds_before_today', CustomView.time_periods %> and the next <%= select 'view_parameters', 'seconds_after_today', CustomView.time_periods %> of talks.
+</div>
+
+<div>
+	<%= check_box('view_parameters', 'term', {}, 'current','') %>
+	Only show this term's talks.
+</div>
+
+<p>&nbsp;</p>
+<h2>2. How would you like it to look?</h2>
+<% CustomView.action_options.each do |description,action| %>
+	<%= radio_button 'view_parameters', 'action', action %><%= description %><br/>
+<% end %>
+
+<p>&nbsp;</p>
+<h2>3. How would you like it to be wrapped?</h2>
+
+<% CustomView.layout_options.each do |description,layout| %>
+	<%= radio_button 'view_parameters', 'layout', layout %><%= description %><br/>
+<% end %>
+
+</form>
+
+<%= keep_url_in_sync_with_form @custom_view, 'viewform', 'viewurl' %>
+
+<p>&nbsp;</p>
+<h2>4. Access your custom layout</h2>
+<div id='viewurl'>
+	<%= url_area @custom_view %>
+</div>

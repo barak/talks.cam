@@ -1,0 +1,6 @@
+<li id='manager-<%= manager.id %>'>
+	<%= manager.email %> [<%= manager.name %>]
+	<% unless manager == User.current %>
+		<%= link_to_remote '(remove)', :url => {:action => 'delete_manager', :id => @list, :manager => manager.id } %>
+	<% end %>
+</li>

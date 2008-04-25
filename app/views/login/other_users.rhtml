@@ -1,0 +1,17 @@
+<h1>Login for non-university users</h1>	
+<p>Please login using this form.</p>
+<% if flash[:login_error] %>
+	<p class='error'><%= flash[:login_error] %></p>
+<% end %>
+
+<%= start_form_tag :action => 'not_raven_login' %>
+<table>
+	<tr><td>Your e-mail:</td><td><%= text_field_tag 'email', @email %></td></tr>
+	<tr><td>Your password:</td><td><%= password_field_tag 'password'%></td></tr>
+</table>
+<%= submit_tag 'Log in' %>
+<%= end_form_tag %>
+
+<p><%= link_to 'E-mail me my password', :action => 'lost_password'%></p>
+
+<p><%= link_to 'No account?', new_user_url %></p>

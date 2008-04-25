@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+list_one_has_talk_one:
+  id: 1
+  list_id: 1
+  talk_id: 1
+series_link_test:
+  id: 2
+  list_id: 9
+  talk_id: 4
+venue_link_test:
+  id: 3
+  list_id: 5
+  talk_id: 5

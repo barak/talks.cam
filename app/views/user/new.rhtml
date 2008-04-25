@@ -1,0 +1,17 @@
+<h1>Request an account</h1>
+
+<p>Talks.cam is aimed at people interested in seminars and talks taking place in and around the University of Cambridge.</p>
+
+<% form_for(:user, :url => user_url(:action => 'create')) do |user| %>
+	<%= user.hidden_field :send_email, :value => 1 %>
+	<%= error_messages_for :user %>
+	<p>Please enter your e-mail address:
+	<%= user.text_field :email %> 
+	and 
+	<%= submit_tag 'Request an account' %>
+	 or 
+	<%= link_to "login using raven", login_url(:action => 'go_to_raven') %>. 
+	A password will then be e-mailed to you.</p>
+	
+	<p>If you are part of the University of Cambridge please use your crsid@cam.ac.uk email. This will allow you to use login wih <a href='http://raven.cam.ac.uk/'>Raven</a>.</p>
+<% end %>

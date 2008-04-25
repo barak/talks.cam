@@ -1,0 +1,21 @@
+<% if User.current %>
+	<h2>Actions</h2>
+	<%= link_to 'Create a new list', list_details_url(:action => 'new') %>
+	<%= link_to 'Add a new talk', list_details_url(:action => 'choose') %>
+	<br/>
+	<%= link_to 'Edit your details', user_url(:id => User.current.id, :action => 'edit') %>
+	<%= link_to 'Change your password', user_url(:id => User.current.id, :action => 'change_password') %>
+	<%= link_to 'Manage e-mail reminders', reminder_url %>
+	<br/>
+	<%= link_to 'Log out', login_url(:action => 'logout') %>
+	
+	<h2>Lists that you manage</h2>
+	<%= link_list User.current.personal_list %>
+	<br/>
+	<% (User.current.lists - [User.current.personal_list]).sort_by { |list| list.name }.each do |list| %>
+		<%= link_list list %>
+	<% end %>
+	
+<% else %>
+	<%= render 'shared/login'%>
+<% end %>

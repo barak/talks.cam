@@ -1,0 +1,7 @@
+<h1>Recently Changed Documents</h1>
+
+<ul>
+	<% for version in @versions %>
+		<li><%= version.updated_at.to_formatted_s(:short) %> <%= link_to version.name, :action => 'show', :name => version.name %> by <%= User.find(version.user_id).email  %></li>
+	<% end %>
+</ul>

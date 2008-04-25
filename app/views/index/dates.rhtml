@@ -1,0 +1,44 @@
+<h1>Talks on <%= params[:year ]%>/<%= params[:month ]%>/<%= params[:day ]%></h1>
+
+<ul class='indexselector'>
+	<% ['Lists','Venues','Talks','Dates'].each do |category| %>
+	<% if category.downcase == @controller.action_name %>
+		<li class='selected'><%= category %>
+	<% else %>
+		<li><%= link_to category, :action => category.downcase, :letter => params[:letter] %></li>
+	<% end %>
+	<% end %>
+</ul>
+
+<ul class='indexselector'>
+	<% (2005..(@year+2)).each do |year| %>
+		<% if year == @year %>
+			<li class='selected'><%= year %>
+		<% else %>
+			<li><%= link_to year, :year => year %></li>
+		<% end %>
+	<% end %>
+</ul>
+
+<ul class='indexselector'>
+	<% ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].each_with_index do |month,month_index| %>
+	<li class='<%= ((month_index + 1) == @month) ? 'selected' : '' %>' ><%= link_to_unless_current month, :month => month_index + 1 %></li>
+	<% end %>
+</ul>
+
+<ul class='indexselector'>
+	<% 1.upto(Time.days_in_month(@month,@year)) do |day| %>
+	<li class='<%= (day == @day) ? 'selected' : '' %>' ><%= link_to_unless_current day, :day => day %></li>
+	<% end %>
+</ul>
+
+<h3><%= @time.strftime '%A %d %B %Y' %></h3>
+<ul>
+<% @talks.each do |talk| %>
+	<li><%= talk.start_time.strftime('%H:%M') %> - <%= link_talk talk %></li>
+<% end %>
+</ul>
+
+<% if @talks.empty? %>
+	<p>No talks on <%= params[:year ]%>/<%= params[:month ]%>/<%= params[:day ]%></p>
+<% end %>

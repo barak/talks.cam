@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title><%= page_title %></title>
+<style type="text/css">
+/** Global settings **/
+html, body {
+	background-color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif; 
+	}
+
+	a {text-decoration:none; }
+	a:link {color: #003399;}
+	a:visited {color: #003399;}
+	a:link:hover, a:visited:hover {
+		color: #cc3333;
+		text-decoration: underline;
+		}
+	a[href]:active {color: #cc0000;}
+	a img {
+		border: none;
+	}
+
+	h1, h2 {
+		font-weight: bold;
+		font-size: 1em;
+		color: #990000;
+		border-bottom:  2px solid #ccc;
+		}
+	
+	h1 a, h1 a:visited, h2 a, h2 a:visited {
+		color: #990000;
+		}
+	
+	/** Default for all tables **/
+	td {
+		vertical-align: top; 		
+	}
+	
+	
+	/* Urgent things */
+	.urgent {
+		font-weight: bold;
+		color: #990000;
+	}	
+	
+	/** Hover click boxes **/
+	div.click:hover {
+		background: #FFFFCC;
+		cursor: pointer;
+	}
+
+	div.click:hover a.click{
+		text-decoration: underline;
+	}
+
+/** Main content div **/
+#content {
+	margin: 12px 0 12px 0; 
+	width: 100%; 
+	}
+	
+/** The default application layout **/
+body.application table#container {
+	width: 100%;
+}
+	body.application table#container td.left {
+		width: 13em;
+		border-right: 1px solid #eee;
+	}
+	
+	td.centre {
+		padding: 0 1em 0 1em;
+	}
+		td.centre h1 {
+			font-size: 1.2em;
+			padding: 0;
+			margin: 0;
+		}
+
+/** Standard list view **/
+.list table {
+	width: 100%;
+}
+	/** The left login box etc **/
+	.list td.left {
+		width: 13em;
+		border-right: 1px solid #eee;
+	}
+	
+	.list td.left form {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.list td.left input {
+		width: 100%;
+		
+	}
+
+	/** The main talks area **/
+	.list td.main {
+		padding: 0 1em 0 1em;
+	}
+		.list td.main h1 {
+			font-size: 1.2em;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.list td.main img.logo, .list td.centre img.logo {
+			float: right;
+			background: white;
+			padding: 0 0 5px 5px;
+		}
+		
+		.list td.main p.count {
+			font-size: 0.8em;
+		}
+		
+		/** Standard talk list **/
+		.list td.main div.simpletalk {
+			padding: 0.5em 0 0.5em 0;
+		}
+						
+			.list td.main div.simpletalk h2 {
+				color: #990000;
+				font-size: 1em;
+				font-weight: normal;
+				margin: 0 0 0 0px;
+				border-bottom: none;
+			}
+			
+			.list td.main div.simpletalk h2 a, .list td.main div.simpletalk h2 a:visited {
+				color: #990000;
+			}
+		
+			.list td.main div.simpletalk p {
+				font-size: 0.8em;
+				margin: 0 0 0 0em;
+			}
+			
+				.list td.main div.simpletalk p a, .list td.main div.simpletalk p a:visited {
+					color: black;
+				}
+			
+				.list td.main div.simpletalk p.series {
+					font-size: 0.6em;
+				}
+
+	/** The related box **/
+	td.related {
+		width: 13em;
+		border-left: 1px solid #eee;
+		text-align: left;
+		padding: 0 0 0 1em; 
+		font-size: 0.75em;
+		margin:0;
+	}
+	
+		td.related h2 {
+			margin: 2em 0 0.5em 0;
+		}
+
+		td.related a  {
+			display: block;
+			width: 100%;
+			padding-top: 0.2em;
+			padding-bottom: 0.3em;
+			}
+
+			td.related a:hover  {
+				background: #FFFFCC;
+				}
+				
+/** The talks view **/
+.talk div.details ul {
+	margin: 0;
+	padding: 0 0 1em 0;
+}
+	.talk div.details ul {
+		padding-left: 1.2em;
+	}
+
+</style>
+</head>
+	<body class='<%= body_class %>'>
+		<table id="container" summary="page content">
+			<tr>
+				<td class="main">
+					<a name="startcontent" id="startcontent"></a>
+					<%= yield %>
+				</td>
+				<td class='related'>
+					<%= link_to image_tag('talkslogosmall.gif',:width => "61", :height =>"41", :alt => '[Talks.cam]'), home_url %>
+					<%= render :partial => 'related' %>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

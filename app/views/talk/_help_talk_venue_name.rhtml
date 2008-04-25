@@ -1,0 +1,17 @@
+<div class='help'>
+	<p>Please enter the full name of the venue, including department. As a short cut, click on one of the following 'usual venues':</p>
+	<ul>
+	<%= render :partial => "venue", :collection => @usual_details.venues %>
+	</ul>
+
+	<p>Or, if you start typing the name of the venue, I will make some suggestions below. If the venue is not shown, please just continue to type the name of the venue and it will be recorded for next time.</p>
+	<%= observe_field 'talk_venue_name',  :frequency => 1, :update => 'venues', :url => { :action=> 'venue_list' }, :with => "'search=' + escape(value)" %>
+
+	<ul>
+	<div id='venues'>
+	</div>
+	</ul>
+	
+</div>
+
+<div style='height:2em;'>&nbsp;</div>

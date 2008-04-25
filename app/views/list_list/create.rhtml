@@ -1,0 +1,25 @@
+<h1>Which lists would you like to include &#145;<%= @child.name %>&#146;?</h1>
+
+<p>Please check all the lists that you wish &#145;<%= @child.name %>&#146; to be part of, and click update</p>
+<%= form_tag include_list_url(:action => 'create', :child => @child.id  ) %>
+<table>
+	<% for list in @lists.sort_by { |list| list.name } %>
+	<tr>
+		<td>
+			<% unless @child == list %>
+				<%= check_box_tag "add_to_list[#{list.id}]", 'add',  list.children.direct.include?(@child) %>
+				<%= hidden_field_tag "add_to_list[#{list.id}]", 'remove' %>
+			<% end %>
+		</td>
+	<td><%= list.name %></td></tr>
+	<% end %>
+</table>
+<%= submit_tag 'Update' %> or <%= link_to 'Cancel', list_url(:id => @child ) %>
+</form>
+
+<h2>New List</h2>
+
+<p>If you like, you can create a new list:</p>
+<div id='lists'>
+<%= render :partial => 'list/add_list' %>
+</div>

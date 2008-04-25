@@ -1,0 +1,9 @@
+<h1>Create a new list</h1>
+
+<p>Please only add an existing series to talks.cam if you are the actual organiser of the series, or have first asked their permission.</p>
+
+<% form_tag( {:action => 'create'}, :multipart => true, :id => 'editlist') do %>
+<%= render :partial => 'list_details' %>
+<% end %>
+
+<script type="text/javascript">Behaviour.register(list_new_rules)</script>

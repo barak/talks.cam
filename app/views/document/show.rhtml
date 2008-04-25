@@ -1,0 +1,13 @@
+<h1><%= @document.name.titlecase %></h1>
+<% if User.current %>
+	<p class='actions'>
+		<% if @document.administrator_only? %>
+			<%= link_to 'Edit (Administrator Only)', :action => 'edit', :name => @document.name %>
+		<% else %>
+			<%= link_to 'Edit', :action => 'edit', :name => @document.name %>
+		<% end %>
+	</p>
+<% end %>
+
+<%= @document.html %>
+
