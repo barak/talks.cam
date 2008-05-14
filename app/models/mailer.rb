@@ -68,7 +68,7 @@ class Mailer < ActionMailer::Base
   def weekly_list( subscription )
     logger.info "Creating weekly message about #{subscription.list.name} for #{subscription.user.email}"
     set_common_variables( subscription )
-    @subject    = "[Talks.cam] This week's talks: '#{subscription.list.name}"
+    @subject    = "[Talks.cam] This week's talks: #{subscription.list.name}"
     parameters = { :controller => 'show', :id => subscription.list.id,:seconds_after_today => 1.week, :seconds_before_today => 0,:username => subscription.user.name, :action => 'email' }
     @body[:text] = get_list( parameters )
   end
