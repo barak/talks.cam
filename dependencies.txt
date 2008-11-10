@@ -1,7 +1,5 @@
 h1. Requirements for talks2.cam
 
-Note that talks.cam has only been tested to work against rails v1.2.3
-
 This is what I did on orkney (a debian sarge installation) to get talks2 working:
 
 h2. The basics

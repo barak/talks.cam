@@ -213,7 +213,7 @@ class Talk < ActiveRecord::Base
       [
         'BEGIN:VEVENT',
         "CATEGORIES:#{series && series.name && series.name.to_ics}",
-        "SUMMARY:#{"#{title} - #{name_of_speaker}".to_ics}",
+        "SUMMARY:#{title && title.to_ics}",
         "DTSTART:#{start_time.getgm.to_s(:ics)}",
         "DTEND:#{end_time.getgm.to_s(:ics)}",
         "UID:TALK#{id}AT#{ActionController::Base.asset_host}",

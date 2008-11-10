@@ -90,7 +90,7 @@ class MailerTest < Test::Unit::TestCase
     
     # Create and check the message
     message = Mailer.create_weekly_list( subscription )
-    assert_equal "[Talks.cam] This week's talks: #{list.name}", message.subject
+    assert_equal "[Talks.cam] This week's talks: '#{list.name}", message.subject
     check_message message, user, list, talks
   end
 
