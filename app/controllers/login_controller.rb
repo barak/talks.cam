@@ -91,6 +91,12 @@ class LoginController < ApplicationController
 			error(570,"Mismatch request and response id") unless session.request_id == CGI.unescape( params )
 		end
     
+		#If status is 410, user pressed Cancel on Raven page - redirect to home page
+		if status.to_i == 410
+		  redirect_to :controller => 'search'
+		  return
+		end
+
 		#If we got here, and status is 200, then yield the principal
 		error(status.to_i, msg) unless status.to_i == 200
 		
