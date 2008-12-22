@@ -10,8 +10,12 @@ class ApplicationController < ActionController::Base
   # If someone types in a url that rails doesn't recognise, then returns a 404 rather than an
   # application error
   def rescue_action_in_public(exception)
-    return super unless exception.is_a? ::ActionController::RoutingError
-    render_404
+    case exception
+      when ::ActionController::RoutingError, ::ActionController::MissingTemplate
+        render_404
+      else
+        return super
+    end
   end
   
 end
