@@ -170,7 +170,8 @@ class Talk < ActiveRecord::Base
   attr_writer :end_time_string
   
   def update_start_and_end_times_from_strings
-    return unless @start_time_string && @end_time_string && @date_string
+    #Don't try to run this unless we have sensible strings to work with
+    return unless @start_time_string && @end_time_string && @date_string && errors.count==0
     year,month, day = date_string.split('/')
     start_hour, start_minute = start_time_string.split(':')
     end_hour, end_minute = end_time_string.split(':')
