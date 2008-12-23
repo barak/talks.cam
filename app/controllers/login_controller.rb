@@ -93,7 +93,7 @@ class LoginController < ApplicationController
     
 		#If status is 410, user pressed Cancel on Raven page - redirect to home page
 		if status.to_i == 410
-		  redirect_to :controller => 'search'
+		  redirect_to(home_url)
 		  return
 		end
 
