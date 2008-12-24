@@ -8,4 +8,9 @@
 	<li><%= render :partial => 'list/add_list' %></li>
 </ul>
 
-<p>If you want to practice adding a talk to a series that no-one else sees, you can add it to <%=link_to User.current.personal_list.name, talk_url(:action => 'edit', :list_id => User.current.personal_list.id )%>.</p>
+<p>If you want to practice adding a talk to a series that no-one else sees,
+<% if User.current.personal_list %>
+you can add it to <%=link_to User.current.personal_list.name, talk_url(:action => 'edit', :list_id => User.current.personal_list.id )%>.
+<% else %>
+you can add it to your personal list. Unfortunately you appear to have deleted it; to get your personal list re-instated, please contact webmaster@talks.cam.ac.uk.
+<% end %></p>
