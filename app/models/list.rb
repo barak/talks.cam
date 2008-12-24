@@ -65,6 +65,9 @@ class List < ActiveRecord::Base
   
   # This is to allow a custom image to be loaded
   include BelongsToImage
+
+  # Validations
+  validates_presence_of :name
     
   # Make sure the html stays in sync
   before_save :update_html_for_abstract
