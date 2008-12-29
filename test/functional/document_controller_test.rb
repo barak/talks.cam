@@ -15,8 +15,8 @@ class DocumentControllerTest < Test::Unit::TestCase
   
   def test_routing
     with_options :controller => 'document', :action => 'show' do |r|
-      r.assert_routing "/document/this+is+a+good+idea", :name => 'this is a good idea'
-      r.assert_routing "/document/this+is+a+good+idea+for+talks.cam", :name => 'this is a good idea for talks.cam'
+      r.assert_routing "/document/this%20is%20a%20good%20idea", :name => 'this is a good idea'
+      r.assert_routing "/document/this%20is%20a%20good%20idea%20for%20talks.cam", :name => 'this is a good idea for talks.cam'
     end
   end
   
