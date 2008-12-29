@@ -14,7 +14,7 @@ class ListController < ApplicationController
       @list.users << User.current
       flash[:confirm] = "Successfully created  &#145;#{@list.name}&#146;"
       if params[:return_to]
-        redirect_to_path params[:return_to]
+        redirect_to params[:return_to]
       else
         redirect_to list_url(:id => @list.id)
       end

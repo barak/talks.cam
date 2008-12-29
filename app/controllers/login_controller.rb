@@ -57,7 +57,7 @@ class LoginController < ApplicationController
 		#Store a random number in params so we can match this request to later responses
 		raven_params = session[:request_id] = rand( 999999 ).to_s
 		
-		redirect_to_url "#{raven_settings[:raven_url]}?" <<
+		redirect_to "#{raven_settings[:raven_url]}?" <<
 		"ver=#{escape(raven_settings[:raven_version])};" <<
 		"url=#{escape( url_for( :action => 'from_raven' ))};" <<
 		"desc=#{escape(raven_settings[:description])};" <<
