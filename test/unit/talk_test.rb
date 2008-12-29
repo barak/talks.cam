@@ -252,25 +252,25 @@ class TalkTest < Test::Unit::TestCase
   end
   
   def test_term
-    lent = [ Time.local( 2005,1,1), Time.local(2005,3,31) ]
+    lent = [ Time.local( 2005,1,1), Time.local(2005,3,31, 23, 59, 59) ]
     assert_equal lent, Talk.create( :start_time => lent.first ).term
     assert_equal lent, Talk.create( :start_time => lent.first + 10.days ).term
     assert_equal lent, Talk.create( :start_time => lent.last ).term
     
     # Easter
-    easter = [ Time.local( 2005,4,1), Time.local(2005,6,30) ]
+    easter = [ Time.local( 2005,4,1), Time.local(2005,6,30, 23, 59, 59) ]
     assert_equal easter, Talk.create( :start_time => easter.first ).term
     assert_equal easter, Talk.create( :start_time => easter.first + 10.days ).term
     assert_equal easter, Talk.create( :start_time => easter.last ).term
     
     # Vacation
-    vacation = [ Time.local( 2005,7,1), Time.local(2005,9,30) ]
+    vacation = [ Time.local( 2005,7,1), Time.local(2005,9,30, 23, 59, 59) ]
     assert_equal vacation, Talk.create( :start_time => vacation.first ).term
     assert_equal vacation, Talk.create( :start_time => vacation.first + 10.days ).term
     assert_equal vacation, Talk.create( :start_time => vacation.last ).term
     
     # Michaelmas
-    michaelmas = [ Time.local( 2005,10,1), Time.local(2005,12,31) ]
+    michaelmas = [ Time.local( 2005,10,1), Time.local(2005,12,31, 23, 59, 59) ]
     assert_equal michaelmas, Talk.create( :start_time => michaelmas.first ).term
     assert_equal michaelmas, Talk.create( :start_time => michaelmas.first + 10.days ).term
     assert_equal michaelmas, Talk.create( :start_time => michaelmas.last ).term
