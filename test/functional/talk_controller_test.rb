@@ -68,9 +68,9 @@ class TalkControllerTest < Test::Unit::TestCase
     talk.save
     get :vcal, :id => talk.id
     assert_response :success    
-    assert_equal "text/calendar; charset=utf-8", @response.headers["Content-Type"] 
+    assert_equal "text/calendar; charset=utf-8", @response.headers['type'] 
     check_assigns_correctly talk
-    assert_equal "text/calendar; charset=utf-8", @response.headers["Content-Type"] 
+    assert_equal "text/calendar; charset=utf-8", @response.headers['type'] 
     assert_equal 'Does ical correctly escape \,\;\\\\\\n    another lin', @response.body[/SUMMARY:(.*?)\r/m,1]
     assert_equal 'Does ical correctly escape \,\;\\\\\\n    another lin', @response.body[/DESCRIPTION:(.*?)\r/m,1]
   end
@@ -103,7 +103,7 @@ class TalkControllerTest < Test::Unit::TestCase
   def test_api
     xhr :post, :update, {:format => 'xml', :talk => {:title => 'new talk created using the api',:series_id => series.id}}, {:user_id => manager.id}
     assert Talk.find_by_title('new talk created using the api')
-    assert_match 'application/xml', @response.headers['Content-Type']
+    assert_match 'application/xml', @response.headers['type']
     assert_response :success
   end
   

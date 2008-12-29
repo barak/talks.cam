@@ -223,7 +223,7 @@ class ShowControllerTest < Test::Unit::TestCase
     list = List.find 1
     get :xml, {:id => list.id}, {:user_id => users(:administrator).id}
     assert_template 'xml'
-    assert_equal "text/xml; charset=utf-8", @response.headers["Content-Type"]
+    assert_equal "text/xml; charset=utf-8", @response.headers["type"]
     require 'rexml/document'
     document = REXML::Document.new @response.body
     root = document.root
@@ -257,7 +257,7 @@ class ShowControllerTest < Test::Unit::TestCase
     list.add talk
     get :ics, :id => list.id
     assert_response :success    
-    assert_equal "text/calendar; charset=utf-8", @response.headers["Content-Type"] 
+    assert_equal "text/calendar; charset=utf-8", @response.headers["type"] 
     assert_equal 'Does ical correctly escape \,\;\\\\\\n    another lin', @response.body[/SUMMARY:(.*?)\r/m,1]
   end
   

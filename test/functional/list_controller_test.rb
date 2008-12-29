@@ -124,7 +124,7 @@ class ListControllerTest < Test::Unit::TestCase
   def test_html_header
     list = List.create :name => 'test list', :details => 'test details'
     get :index, :id => list.id
-    assert_match @response.headers['Content-Type'], 'text/html; charset=utf-8'
+    assert_match @response.headers['type'], 'text/html; charset=utf-8'
     assert_tag 'meta', :attributes => { 'http-equiv' =>"content-type", :content => "text-html; charset=utf-8"}
   end
   
