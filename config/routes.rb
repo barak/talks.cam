@@ -37,7 +37,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sort out the image controller
   map.with_options :controller => 'image', :action => 'show' do |image_controller|
     image_controller.connect '/image/:action/:id/image.png'
-    image_controller.picture   '/image/:action/:id/image.png;:geometry', :geometry => '128x128'
+    image_controller.picture   '/image/:action/:id/image.png/:geometry', :geometry => '128x128'
   end
   
   # Map the old embedded feeds
