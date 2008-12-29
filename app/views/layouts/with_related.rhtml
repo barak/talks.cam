@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-<%= render 'shared/header' %>
+<%= render :file => 'shared/header' %>
 	<body class='<%= body_class %>'>
-		<%= render 'shared/navigationbar' %>
-		<%= render 'shared/headerlogos' %>
-		<%= render 'shared/breadcrumbs' %>
+		<%= render :file => 'shared/navigationbar' %>
+		<%= render :file => 'shared/headerlogos' %>
+		<%= render :file => 'shared/breadcrumbs' %>
 
 		<table id="container" summary="page content">
 			<tr>
@@ -21,7 +21,7 @@
 				</td>
 			</tr>
 		</table>
-		<%= render 'shared/footer'%>
+		<%= render :file => 'shared/footer'%>
 	</body>
 </html>
 
