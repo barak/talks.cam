@@ -4,43 +4,76 @@
 # you don't control web/app server and can't set it the proper way
 ENV['RAILS_ENV'] ||= 'production'
 
+# Specifies gem version of Rails to use when vendor/rails is not present
+RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
+
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 ENV['LANG'] = 'en_GB.utf8'
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence those specified here
+  # Application configuration should go into files in config/initializers
+  # -- all .rb files in that directory are automatically loaded.
+  # See Rails::Configuration for more options.
   
-  # Skip frameworks you're not going to use
+  # Skip frameworks you're not going to use. To use Rails without a database
+  # you must remove the Active Record framework.
   # config.frameworks -= [ :action_web_service, :action_mailer ]
 
+  # Specify gems that this application depends on. 
+  # They can then be installed with "rake gems:install" on new installations.
+  # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
+  # config.gem "bj"
+  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
+  # config.gem "sqlite3-ruby", :lib => "sqlite3"
+  # config.gem "aws-s3", :lib => "aws/s3"
+
+  # Only load the plugins named here, in the order given. By default, all plugins 
+  # in vendor/plugins are loaded in alphabetical order.
+  # :all can be used as a placeholder for all plugins not explicitly named
+  # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+  
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
+
+  # Make Time.zone default to the specified zone, and make Active Record store time values
+  # in the database in UTC, and return them converted to the specified local zone.
+  # Run "rake -D time" for a list of tasks for finding time zone names. Comment line to use default local time.
+  #config.time_zone = 'UTC'
+
+  # The internationalization framework can be changed to have another default locale (standard is :en) or more load paths.
+  # All files from config/locales/*.rb,yml are added automatically.
+  # config.i18n.load_path << Dir[File.join(RAILS_ROOT, 'my', 'locales', '*.{rb,yml}')]
+  # config.i18n.default_locale = :de
+
+  # Your secret key for verifying cookie session data integrity.
+  # If you change this key, all old sessions will become invalid!
+  # Make sure the secret is at least 30 characters and all random, 
+  # no regular words or you'll be exposed to dictionary attacks.
+  config.action_controller.session = {
+    :session_key => '_talks_session',
+    :secret      => '655af2903d267464633426f91cdb7a5674ab4f5731418564c6517693fd1e2f718ebba228c86cbbf67b2ed40231dd74aec5e977ccb8e0ddb9877162669a625749'
+  }
 
   # Force all environments to use the same logger level 
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug
 
-  # Use the database for sessions instead of the file system
-  # (create the session table with 'rake create_sessions_table')
+  # Use the database for sessions instead of the cookie-based default,
+  # which shouldn't be used to store highly confidential information
+  # (create the session table with "rake db:sessions:create")
   config.action_controller.session_store = :active_record_store
 
-  # Enable page/fragment caching by setting a file-based store
-  # (remember to create the caching directory and make it readable to the application)
-  # config.action_controller.fragment_cache_store = :file_store, "#{RAILS_ROOT}/cache"
-
+  # Use SQL instead of Active Record's schema dumper when creating the test database.
+  # This is necessary if your schema can't be completely dumped by the schema dumper,
+  # like if you have constraints or database-specific column types
+  # config.active_record.schema_format = :sql
+  
   # Activate observers that should always be running
-  # config.active_record.observers = :cacher, :garbage_collector
+  # Please note that observers generated using script/generate observer need to have an _observer suffix
+  # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
   
-  # Make Active Record use UTC-base instead of local time
-  # config.active_record.default_timezone = :utc
-  
-  # Use Active Record's schema dumper instead of SQL when creating the test database
-  # (enables use of different database adapters for development and test environments)
-  config.active_record.schema_format = :ruby
-
-  # See Rails::Configuration for more options
-
   # This is neccessary to make the images in embedded feeds work
   # config.action_controller.asset_host = 'http://talks.cam.ac.uk'
   
@@ -48,59 +81,3 @@ Rails::Initializer.run do |config|
   config.action_mailer.delivery_method = :sendmail
 end
 
-# Add new inflection rules using the following format 
-# (all these examples are active by default):
-# Inflector.inflections do |inflect|
-#   inflect.plural /^(ox)$/i, '\1en'
-#   inflect.singular /^(ox)en/i, '\1'
-#   inflect.irregular 'person', 'people'
-#   inflect.uncountable %w( fish sheep )
-# end
-
-# Include your application configuration below
-
-require 'icalendar_extensions'
-
-begin 
-  require 'RMagick'
-rescue LoadError
-  require_gem 'RMagick'
-end
-
-module ActionView
-  module Helpers
-    module TextHelper
-      module_function :sanitize
-    end
-  end
-end
-
-RAVEN_SETTINGS = { 
-  # :raven_url 		=> 'https://demo.raven.cam.ac.uk/auth/authenticate.html',  
-   :raven_url 		=> 'https://raven.cam.ac.uk/auth/authenticate.html',
-  :raven_version => '1',
-  :max_skew 		=> 90, # seconds
-  :public_key_files => { 2 => File.join(File.dirname(__FILE__), 'pubkey2.txt') },
-#  :public_key_files => { 901 => File.join(File.dirname(__FILE__), 'pubkey901.txt') },
-  :description 	=> 'the talks.cam website',
-  :message 		=> 'we wish to track who makes what changes',
-  :aauth 			=> [],
-  :iact 			=> "",
-  :match_response_and_request => true,
-  :fail 			=> "",
-  }
-
-# Configure the exception notification plugin
-ExceptionNotifier.exception_recipients = %w( BUGS@talks.cam )
-ExceptionNotifier.sender_address =%( "talks.cam" <BUGS_SENDER@talks.cam> )
-
-# Monkey patch ActionMailer to force a return-path to be inserted
-class ActionMailer::Base
-  def perform_delivery_sendmail(mail)
-#    IO.popen("/usr/sbin/sendmail -i -t","w+") do |sm|
-    IO.popen("/usr/sbin/sendmail -i -t -fBUGS_ENVELOPE@talks.cam","w+") do |sm|
-      sm.print(mail.encoded.gsub(/\r/, ''))
-      sm.flush
-    end
-  end
-end
