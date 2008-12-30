@@ -23,9 +23,8 @@ class UserControllerTest < Test::Unit::TestCase
     assert Mailer.deliveries.find { |mail| mail.to && (mail.to[0] == user.email) }
     user = User.create! :name => 'bill', :email => 'webmaster2@talks.cam.ac.uk'
     assert_response :redirect
-    follow_redirect
-    assert_response :success
-    assert_template "user/password_sent"
+    assert_redirected_to :controller => "user", :action => "password_sent"
+
     post :create, :user => { :email => 'bob2@talks.cam' }
     user = assigns(:user)
     assert user.errors.on(:email)
