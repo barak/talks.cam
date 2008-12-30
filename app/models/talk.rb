@@ -34,9 +34,23 @@ class Talk < ActiveRecord::Base
   include BelongsToImage
   
   # Validations
-  validates_format_of :date_string, :with => %r{\d\d\d\d/\d+/\d+}, :allow_nil => true
   validates_format_of :start_time_string, :with => %r{\d+:\d+}, :allow_nil => true
   validates_format_of :end_time_string, :with => %r{\d+:\d+}, :allow_nil => true
+  # validate the date.  This method keeps as close as possible to Tom's original validation (just the regexp), while also checking it can be parsed into a real date (so no 2008/12/12312 entries)
+  validates_each :date_string do |record, attr, value|
+  	if not value.blank?
+	  	if value =~ %r{\d\d\d\d/\d+/\d+} 
+		  	begin
+  				Date.parse(value) 
+	  		rescue ArgumentError
+  				record.errors.add(attr)  
+  			end
+  		else
+			record.errors.add(attr) 
+		end		
+	end 
+  end
+
   
   before_save :update_html_for_abstract
   before_save :check_if_venue_or_series_changed
@@ -171,7 +185,7 @@ class Talk < ActiveRecord::Base
   
   def update_start_and_end_times_from_strings
     #Don't try to run this unless we have sensible strings to work with
-    return unless @start_time_string && @end_time_string && @date_string && errors.count==0
+    return unless @start_time_string && @end_time_string && !@date_string.blank? && errors.count==0
     year,month, day = date_string.split('/')
     start_hour, start_minute = start_time_string.split(':')
     end_hour, end_minute = end_time_string.split(':')
