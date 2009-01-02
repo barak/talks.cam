@@ -219,18 +219,40 @@ class TalkTest < Test::Unit::TestCase
   end
   
   def test_checks_date_start_and_end_strings_valid
+  	# Date must be YYYY/MM/DD and parseable, or blank
     talk = Talk.create :date_string => "01/02/2007"
-    assert_equal(false, talk.save)
-    assert talk.errors.on(:date_string)
+    assert talk.errors.invalid?(:date_string)
+    talk = Talk.create :date_string => ""
+    assert !talk.errors.invalid?(:date_string)
+    talk = Talk.create :date_string => "2007/12/20"
+    assert !talk.errors.invalid?(:date_string)
+    talk = Talk.create :date_string => "2007/12/33"
+    assert talk.errors.invalid?(:date_string)
+    talk = Talk.create :date_string => "2007/12/0"
+    assert talk.errors.invalid?(:date_string)
+    talk = Talk.create :date_string => "2007/13/20"
+    assert talk.errors.invalid?(:date_string)
+    talk = Talk.create :date_string => "2007/0/20"
+    assert talk.errors.invalid?(:date_string)
+    
+  	# Time strings must be HH:MM and parseable, or blank
     talk = Talk.create :start_time_string => "09-40"
-    assert_equal(false, talk.save)
-    assert talk.errors.on(:start_time_string)
+    assert talk.errors.invalid?(:start_time_string)
+    talk = Talk.create :start_time_string => "09:40"
+    assert !talk.errors.invalid?(:start_time_string)
+    talk = Talk.create :start_time_string => "25:36"
+    assert talk.errors.invalid?(:start_time_string)
+    talk = Talk.create :start_time_string => "20:65"
+    assert talk.errors.invalid?(:start_time_string)
+
     talk = Talk.create :end_time_string => "09-40"
-    assert_equal(false, talk.save)
-    assert talk.errors.on(:end_time_string)
-    # talk = Talk.create :date_string => "2007/13/01"
-    # assert_equal(false, talk.save)
-    # assert talk.errors.on(:date_string)
+    assert talk.errors.invalid?(:end_time_string)
+    talk = Talk.create :end_time_string => "09:40"
+    assert !talk.errors.invalid?(:end_time_string)
+    talk = Talk.create :end_time_string => "25:36"
+    assert talk.errors.invalid?(:end_time_string)
+    talk = Talk.create :end_time_string => "20:65"
+    assert talk.errors.invalid?(:end_time_string)
   end
   
   def test_update_start_and_end_time_from_strings
