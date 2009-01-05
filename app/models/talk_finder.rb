@@ -1,10 +1,11 @@
 # This is some glue between the parameters sent and a Talk finder request
 class TalkFinder
   
-  attr_accessor :conditions, :settings, :find_parameters, :order, :offset, :limit 
+  attr_accessor :conditions, :settings, :find_parameters, :order, :offset, :limit, :errors
   
   def initialize(parameters = {})
     self.conditions, self.settings, self.find_parameters = [], [], {}
+    self.errors = []
     parameters.each do |key,value|
       send("#{key}=", value) if self.respond_to?("#{key}=")
     end
@@ -21,19 +22,39 @@ class TalkFinder
   end
   
   def seconds_before_today=(period)
-    set start_time_greater, beginning_of_day - period.to_i
+  	begin
+	    set start_time_greater, beginning_of_day - period.to_i
+    rescue RangeError
+    	# The time string in the URL could not be converted.  Record an error and ignore parameter.  
+    	errors << "Seconds before today was out of range in the request"
+    end
   end
   
   def seconds_after_today=(period)
-    set start_time_less, beginning_of_day + period.to_i
+  	begin 
+	    set start_time_less, beginning_of_day + period.to_i
+    rescue RangeError
+    	# The time string in the URL could not be converted.  Record an error and ignore the parameter.  
+    	errors << "Seconds after today was out of range in the request"
+    end
   end
   
   def start_seconds=(time)
-    set start_time_greater, Time.at(time.to_i)
+  	begin 
+    	set start_time_greater, Time.at(time.to_i)
+    rescue RangeError
+    	# The time string in the URL could not be converted.  Record an error and ignore the start_time parameter.  
+    	errors << "Start time was out of range in the request"
+    end
   end
   
   def end_seconds=(time)
-    set start_time_less, Time.at(time.to_i)
+  	begin 
+	    set start_time_less, Time.at(time.to_i)
+    rescue RangeError
+    	# The time string in the URL could not be converted.  Record an error and ignore the start_time parameter.  
+    	errors << "End time was out of range in the request"    	
+    end
   end
   
   alias :start_time= :start_seconds=

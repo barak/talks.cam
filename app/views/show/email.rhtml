@@ -1,3 +1,7 @@
+<% @errors.each do |error| %>
+Error: <%=error%>. 
+<% end %>
+
 <%= @talks.empty? ? '(No talks)' : ''%><% @talks.group_by(&:date).sort_by { |date,talks| date }.each do |date,talks| %>
 <%= date.to_time.strftime '%A %d %B %Y' %>
 <%= '-' * date.to_time.strftime('%A %d %B %Y').size %><% talks.each do |talk| %>

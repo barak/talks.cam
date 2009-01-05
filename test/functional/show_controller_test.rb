@@ -103,6 +103,17 @@ class ShowControllerTest < Test::Unit::TestCase
     assert_equal(expected_talks.map {|t| t.id}, talks.map {|t| t.id})
   end
   
+  # Make sure that bad user data does not cause an uncaught exception
+  def test_bad_times
+  	list = create_test_list
+  	get :index, {:id => list.id, :end_seconds => 99999999999, :start_seconds => 99999999999 }
+  	get :index, {:id => list.id, :seconds_before_today => 99999999999 }
+  	get :index, {:id => list.id, :seconds_after_today => 99999999999 }
+  	talks = assigns(:talks)
+  	# We don't care about the response, just that we have got here without an uncaught exception
+  	assert(true)
+  end
+  
   def test_current_term
     # Find dates of this term
     year = Time.now.year

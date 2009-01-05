@@ -1,5 +1,9 @@
 <!-- Layout based on http://www.admin.cam.ac.uk/news/events/index.cgi -->
 <div class='cam_events'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+
 <table width="100%" border="0" cellspacing="4" cellpadding="0" >
 <% current_month, current_year = nil, nil %>
 <% @talks.group_by(&:date).sort_by { |date,talks| date }.each do |date,talks| %>

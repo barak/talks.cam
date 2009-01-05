@@ -1,4 +1,7 @@
 <div class='index'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
 <% if @list_details %>
 	<%= render :partial => 'list_details'%>
 <% end %>

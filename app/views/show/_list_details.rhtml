@@ -1,3 +1,4 @@
+
 <div class='listdetail click'>
 	<%= link_to logo(@list, :medium), list_details_url( :id => @list ) %>
 <h1><%= link_list @list %></h1>
@@ -10,6 +11,7 @@
 	<%= link_to 'Edit this list', list_details_url( :id => @list, :action => "edit" ) %>
 <% end %>
 </p>
+
 
 <%= @list.details_filtered %>
 

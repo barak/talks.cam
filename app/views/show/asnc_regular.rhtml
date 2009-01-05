@@ -1,5 +1,9 @@
 <!-- Layout based on http://www.asnc.cam.ac.uk/events.htm -->
 <div class='asnc_regular'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+
 <% @talks.group_by(&:term).sort_by { |term,talks| term }.each do |term,talks| %>
 	<h4><a name="regularmt"></a><%= term_string term %></h4>
 	<% talks.each do |talk| %>

@@ -1,4 +1,7 @@
 <div class='old_talks'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
 <% suffix = params['suffix'] ? "_#{params['suffix']}" : ""%>
 <div class="talklist_block<%= suffix %>">
 	<% @talks.group_by(&:date).sort.each do |date,talks| %>

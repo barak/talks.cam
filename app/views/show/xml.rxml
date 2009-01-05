@@ -6,6 +6,10 @@ xml.list do
   xml.details @list.details
   xml.url list_url(:id => @list.id)
   
+  @errors.each do |error|
+  	xml.error error
+  end
+  
   @talks.each do |talk|
     xml.talk do
       xml.id talk.id

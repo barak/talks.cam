@@ -1,4 +1,7 @@
 <div class='table'>
+<% @errors.each do |error| %>
+<span class='error'><%= error %>. </span>
+<% end %>
 <table>
 	<tr class='header'><th>Date</th><th>Speaker</th><th>Title</th><th>Venue</th></tr>
 	<% for talk in @talks %>

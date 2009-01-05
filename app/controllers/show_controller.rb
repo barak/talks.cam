@@ -47,6 +47,7 @@ class ShowController < ApplicationController
   def decode_time_period
     @list = List.find params[:id]
     finder = TalkFinder.new(params)
+    @errors = finder.errors
     @talks = @list.talks.find( :all, finder.to_find_parameters)
   end
   

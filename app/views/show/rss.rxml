@@ -19,9 +19,15 @@ xml.rss(
     
     xml.title @list.name
     xml.link list_url(:id => @list.id)
-    xml.description @list.details
     xml.managingEditor @list.users.first.email if @list.users.first
     xml.pubDate CGI.rfc1123_date(Time.now)
+    
+    # There appears no be no place in RSS to show an error message, so we shoe-horn it into the description
+    details = @list.details
+    @errors.each do |error|
+      details << " Error:" << error << "."
+    end
+    xml.description details
     
     @talks.each do |talk|
       xml.item do

@@ -1,3 +1,7 @@
+<% @errors.each do | error | %>
+Error: <%= error %>
+<% end %>
+
 <%= @list.name %>
 <%= @list.details %>
 <%= @talks.empty? ? '(No talks)' : ''%>
