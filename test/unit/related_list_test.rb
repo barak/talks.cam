@@ -4,12 +4,12 @@ class RelatedListTest < Test::Unit::TestCase
   fixtures :lists, :talks
   
   def test_update_on_create
-    update_on_create_test List
-    update_on_create_test Talk
+    update_on_create_test( List, { :name => 'relatedlisttest' } )
+    update_on_create_test( Talk, { } )
   end
   
-  def update_on_create_test(type)
-    owner = type.create
+  def update_on_create_test(type, options)
+    owner = type.create( options )
     assert_equal false, owner.related_lists.empty?
   end
   

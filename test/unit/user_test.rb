@@ -110,7 +110,7 @@ class UserTest < Test::Unit::TestCase
     assert user.ex_directory?
     user.update_ex_directory_status
     assert user.ex_directory?
-    l = List.create!
+    l = List.create! :name => 'test update ex dir status list'
     l.users << user
     user.reload
     user.update_ex_directory_status

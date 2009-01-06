@@ -18,7 +18,7 @@ class ShowControllerTest < Test::Unit::TestCase
   end
   
   def test_reverse_order_parameter
-    list = List.create!
+    list = List.create! :name => 'test rev order param list'
     talk1 = Talk.create! :start_time => Time.now.next_week, :series => list
     talk2 = Talk.create! :start_time => Time.now.next_month, :series => list
     get :index, :id => list.id
