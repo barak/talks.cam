@@ -70,6 +70,15 @@ class TalkController < ApplicationController
     
     def update
       return false unless ensure_user_is_logged_in
+      # The following is to catch "redirect after login" GET requests
+      # which can't possibly work due to having not stored the original POST data
+      if !request.post?
+        respond_to do |format|
+          flash[:warning] = "Sorry, your talk was not added, please try again."
+          format.html { redirect_to list_details_url(:action => 'choose') }
+        end
+	return true
+      end
       @talk = Talk.new unless find_talk
       @talk.attributes = params[:talk]
       return false unless user_can_edit_talk?       
