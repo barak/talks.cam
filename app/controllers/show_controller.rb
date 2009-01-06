@@ -17,7 +17,11 @@ class ShowController < ApplicationController
   # For email
   def email
     headers["Content-Type"] = "text/plain; charset=utf-8"
+    begin
 		render :layout => false
+    rescue Exception
+                render :text => "Sorry, an error occured in producing your email.\n\nPlease contact the Helpdesk."
+    end
   end
   
   # For watching as a feed
