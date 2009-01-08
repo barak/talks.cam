@@ -74,7 +74,7 @@ class TalkController < ApplicationController
       # which can't possibly work due to having not stored the original POST data
       if !request.post?
         respond_to do |format|
-          flash[:warning] = "Sorry, your talk was not added, please try again."
+          flash[:warning] = "Sorry, your talk was not saved, please try again."
           format.html { redirect_to list_details_url(:action => 'choose') }
         end
 	return true
