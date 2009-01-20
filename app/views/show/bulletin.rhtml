@@ -1,0 +1,34 @@
+<div class='table'>
+<% @errors.each do |error| %>
+<span class='error'><%= error %>. </span>
+<% end %>
+<table>
+	<% datestring = "" %>
+	<% for talk in @talks %>
+	<% prevdatestring = datestring %>
+	<% datestring = talk.start_time.strftime("%A %d %B %Y") %>
+	<% row_class = (talk.special_message && !talk.special_message.empty?) ? 'special' : 'standard' %>
+	<% if prevdatestring != datestring %>
+	<tr>
+		<td class='<%= row_class %>' colspan='3'><%= datestring %></td>
+	</tr>
+	<% end %>
+	<tr>
+		<td class='date <%= row_class %>'><%= talk.start_time.strftime("%H:%M") %>-<%= talk.end_time.strftime("%H:%M") %></td>
+		<td class='speaker <%= row_class %>'><%= talk.name_of_speaker %></td>
+		<td class='venue <%= row_class %>' style='text-align: right'><%= link_list talk.venue %></td>
+	</tr>
+	<tr>
+		<td class='title <%= row_class %>' style='text-align: center; font-weight: bold' colspan='3'><%= link_talk talk %></td>
+	</tr>
+	<tr>
+		<td class='<%= row_class %>' style='text-align: center' colspan='3'><%= link_list talk.series %></td>
+	</tr>
+	<% if talk.special_message && !talk.special_message.empty? %>
+	<tr class='<%= row_class %>'>
+		<td colspan='4' class='special_message'><%= talk.special_message %></td>
+	</tr>
+	<% end %>
+	<% end %>
+</table>
+</div>
