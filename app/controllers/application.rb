@@ -13,6 +13,19 @@ class ApplicationController < ActionController::Base
     case exception
       when ::ActionController::RoutingError, ::ActionController::MissingTemplate
         render_404
+      when ::SystemExit
+        logger.error "SystemExit caught in ApplicationController: #{exception.message}\n" + exception.backtrace.join("\n")
+        # No point trying to render anything, we're being killed off
+      when ::ActionView::TemplateError
+        if exception.message.match('SystemExit') != nil
+          logger.error "TemplateError SystemExit caught in ApplicationController: #{exception.message}\n" + exception.backtrace.join("\n")
+          # No point trying to render anything, we're being killed off
+        elsif exception.backtrace.join('').match('exit_now_handler') != nil
+          logger.error "TemplateError exit caught in ApplicationController: #{exception.message}\n" + exception.backtrace.join("\n")
+          # No point trying to render anything, we're being killed off
+        else
+          return super
+        end
       else
         return super
     end
