@@ -10,7 +10,7 @@ class RelatedTalk < ActiveRecord::Base
   
   def self.create_for( owner )
     owner.related_talks.clear
-    Talk.random_and_in_the_future(10,owner.id).each do |talk|
+    Talk.random_and_in_the_future(6,owner.id).each do |talk|
         owner.related_talks.create :talk => talk
     end
   end
