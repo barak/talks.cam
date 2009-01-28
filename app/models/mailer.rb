@@ -84,7 +84,6 @@ class Mailer < ActionMailer::Base
     }
     @recipients = tickle.recipient_email
     @cc = tickle.sender_email
-    @bcc = 'tamc2@cam.ac.uk'
     @from = FROM
     @send_on = Time.now
     @headers = {}
@@ -103,7 +102,6 @@ class Mailer < ActionMailer::Base
     }
     @recipients = tickle.recipient_email
     @cc = tickle.sender_email
-    @bcc = 'tamc2@cam.ac.uk'
     @from = FROM
     @send_on = Time.now
     @headers = {}
