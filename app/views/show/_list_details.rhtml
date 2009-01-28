@@ -10,6 +10,7 @@
 <% if @list.editable? %>
 	<%= link_to 'Edit this list', list_details_url( :id => @list, :action => "edit" ) %>
 <% end %>
+	<br/><%= link_to 'Subscribe using ical/vcal', {:controller => 'show', :action => 'ics', :id => @list, :only_path => false, :protocol => 'webcal://'}, {:style => 'margin-right: 0px'} %> <%= document('Help with icalendar', false, '(Help)') %>
 </p>
 
 
