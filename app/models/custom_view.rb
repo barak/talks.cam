@@ -32,6 +32,7 @@ class CustomView < ActiveRecord::Base
       ['All the details about every talk','detailed'],
       ['Basic details with series logos next to each talk','simplewithlogo'],
       ['For one day meetings: no venue or dates','oneday'],
+      ['Printable bulletin style (e.g. for cutting and pasting into Word)','bulletin'],
       ['As plain text (e.g. for cutting and pasting into email)','text'],
       ['XML','xml'],
       ['RSS','rss'],
