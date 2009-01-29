@@ -1,0 +1,52 @@
+<!-- Layout based on http://www.admin.cam.ac.uk/news/events/index.cgi -->
+<div class='cam_events'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+
+<table width="100%" border="0" cellspacing="4" cellpadding="0" >
+<% current_month, current_year = nil, nil %>
+<% @talks.group_by(&:date).sort_by { |date,talks| date }.each do |date,talks| %>
+	<% unless current_year == date.year %>
+		<% current_year = date.year %>
+	<tr>
+		<td colspan="4"><div class="category"><%= date.strftime '%Y'%></div></td>
+	</tr>
+	<% end %>
+	<% unless current_month == date.mon %>
+		<% current_month = date.mon %>
+	<tr>
+		<td colspan="4"><div class="date_month"><%= date.strftime '%B'%></div></td>
+	</tr>
+	<% end %>
+	<tr bgcolor="white">
+		<td valign="top" nowrap="nowrap" width="10%">
+			<div class="date_date"><%= date.strftime '%a %d' %></div>
+		</td>
+	</tr>
+	<% talks.each do |talk| %>
+	<tr bgcolor="white">
+		<td valign="top" nowrap="nowrap" width="10%">
+			<small><%= cam_time_format( talk.start_time.strftime('%I.%M%p' ) )%></small>
+		</td>
+		<td valign="top" width="70%">
+			<%= link_talk talk %><br />
+			<% if talk.special_message && !talk.special_message.empty? %>
+				<%= "\n#{talk.special_message}" %><br/>
+			<% end %>
+			<small class='venue'><%= link_list talk.venue %></small>
+		</td>
+		<td valign="top" align="right"><small><%= talk.name_of_speaker %></small></td>
+	</tr>
+	<tr>
+		<td colspan="4" class="null" bgcolor="#0099cc">
+			<img src="/global/images/pixel.gif" width="1" height="1" border="0" alt="" />
+		</td>
+	</tr>
+	<% end %>
+<% end %>
+
+
+
+</table>
+</div>

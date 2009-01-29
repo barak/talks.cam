@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>University of Cambridge: Events calendar</title>
+  <link rel="stylesheet" type="text/css" href="http://www.admin.cam.ac.uk/global/style/cam_news_style.css" />
+  <link type="application/rss+xml" rel="alternate" title="University of Cambridge News Feed" href="http://www.admin.cam.ac.uk/news/newsfeeds/events.xml" />
+
+    <style type="text/css">
+    .cancelled {
+	text-decoration: line-through;
+    }
+    .redmark {
+        color: red;
+    }
+    .date_month {
+       font-weight: bold; font-size: 120%; color: #333333; font-family: Arial, Helvetica, sans-serif;
+       margin-top: 10px;
+    }
+    .date_date {
+       font-weight: bold; font-size: 110%; color: #333333; font-family: Arial, Helvetica, sans-serif;
+       margin-top: 10px;
+       margin-bottom: 5px;
+    }
+    .category {
+       font-weight: bold; font-size: 120%; color: #990000; font-family: Arial, Helvetica, sans-serif;
+       margin-top: 10px;
+       margin-bottom: 2px;
+    }
+	.warn {color: red; text-align:center;font-weight:bold;border-bottom: 1px solid black; padding-bottom:10px;}
+    </style>   
+
+      <script language="javascript">
+    function popup( prescat ) {
+	var link = "./calendar.cgi?cat="+prescat;
+	window.open( link, "Calendar", "height=400,width=600,scrollable,resizeable" );
+    }
+    </script>
+
+
+ </head>
+
+ <body bgcolor="#ffffff">
+  <!-- header -->
+
+<p class='warn'>NOTE THIS PAGE IS NOT REAL. It is a demonstration of talks.cam capabilities. See <a href='http://www.admin.cam.ac.uk/news/events/index.cgi'>the original page</a></p>
+
+  <table cellpadding="0" cellspacing="0" border="0" width="98%">
+   <tr>
+    <td bgcolor="#0099CC" width="100%" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="16" alt="" /></td>
+
+    <td align="right" width="212" rowspan="2" class="null">
+     <table cellpadding="0" cellspacing="0" border="0" width="212">
+      <tr>
+       <td class="null"><a href="http://www.cam.ac.uk/"><img src="http://www.admin.cam.ac.uk/global/images/home.gif" width="53" height="18" border="0" alt="University of Cambridge Home" /></a></td>
+
+       <td class="null"><a href="http://www.admin.cam.ac.uk/global/search/newssearch.html"><img src="http://www.admin.cam.ac.uk/global/images/search.gif" width="53" height="18" border="0" alt="Search" /></a></td>
+
+       <td class="null"><a href="http://www.cam.ac.uk/global/az.html"><img src="http://www.admin.cam.ac.uk/global/images/az.gif" width="53" height="18" border="0" alt="A-Z index" /></a></td>
+
+       <td class="null"><a href="http://www.cam.ac.uk/global/help.html"><img src="http://www.admin.cam.ac.uk/global/images/help.gif" width="53" height="18" border="0" alt="Help" /></a></td>
+      </tr>
+     </table>
+    </td>
+   </tr>
+
+   <tr>
+    <td bgcolor="#CCCCCC" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="2" alt="" /></td>
+   </tr>
+  </table>
+
+  <table cellpadding="0" cellspacing="0" border="0" width="98%">
+   <tr>
+    <td><a href="http://www.cam.ac.uk"><img src="http://www.admin.cam.ac.uk/global/images/identifier2.gif" width="192" height="46" border="0" alt="University of Cambridge Identifier" /></a></td>
+
+    <td align="right" class="title" valign="bottom">News &amp; Events</td>
+   </tr>
+
+   <tr>
+    <td bgcolor="#0099CC" colspan="2" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="4" alt="" /></td>
+   </tr>
+
+   <tr>
+    <td bgcolor="#CCCCCC" colspan="2" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="2" alt="" /></td>
+   </tr>
+  </table>
+  <!-- end header -->
+
+  <!-- breadcrumb-start -->
+  <table cellpadding="0" cellspacing="0" border="0" width="98%" summary="breadcrumb navigation">
+  <tr>
+    <td><a href="http://www.cam.ac.uk/" class="bread">University of Cambridge</a></td>
+  </tr>
+  </table>
+  <!-- breadcrumb-end -->
+  <br />
+   
+
+  <table cellpadding="0" cellspacing="0" border="0" width="98%">
+   <tr>
+    <td width="20%" valign="top" bgcolor="#E6E6E6">
+     <!-- left navigation -->
+    <table cellpadding="4" cellspacing="0" border="0" width="100%">
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/index.cgi" class="newsnav">Latest News</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/archive.cgi" class="newsnav">News Archive</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/daily/index.cgi" class="newsnav">Media Coverage</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/index.cgi" class="newsnav">Press Centre</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/archive.cgi" class="newsnav">Press Release Archive</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/factsheets/" class="newsnav">Factsheets</a></td></tr>
+    <tr><td><a href="http://www.cam.ac.uk/mediaguide/" class="newsnav">Find an Expert</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/factsheets/vc/" class="newsnav">Vice-Chancellor</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/events/index.cgi" class="newsnav">Events</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/contact.html" class="newsnav">Contact Us</a></td></tr>
+    <tr><td><a href="http://www.admin.cam.ac.uk/news/newsfeeds/events.xml" class="newsnav"><img src="http://www.admin.cam.ac.uk/global/images/rss_feed.gif" width="32" height="15" alt="XML RSS Feed" border="0" /></a></td></tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr><td nowrap="nowrap"><form method="get" action="http://web-search.cam.ac.uk/query.html">
+        <span class="newshead4">Search News</span><br />
+        <input type="hidden" name="rq" value="0" />
+        <input type="hidden" name="qp" value="url:www.admin.cam.ac.uk/news/" />
+        <input type="text" name="qt" size="12" />&nbsp;<input type="image" src="http://www.admin.cam.ac.uk/global/images/go.gif" onclick="javascript:submit(this.form)" />
+        </form></td>
+    </tr>
+    </table>
+    <br />
+
+      <!-- end left navigation -->
+    </td>
+
+    <td width="2%">&nbsp;</td>
+
+    <td width="64%" valign="top">
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="4" bgcolor="#e6e6e6" ><tr bgcolor="#e6e6e6"><td valign="center" ></td><td width="50%" valign="center" align="right">Category&nbsp;:&nbsp;<form action="index.cgi" style="display: inline; "><select name="cat" onChange=""><option selected="selected">All events</option><option >Courses</option><option >Drama</option><option >Exhibitions</option><option >Lectures and Seminars</option><option >Music</option><option >Schoolkids</option><option >Sport</option><option >Business</option><option >Other events</option></select><img src="http://www.admin.cam.ac.uk/global/images/go.gif" width="24" height="24" border="0" alt="Go" onClick="" valign="bottom"/></form></td></tr>
+		</table><strong></strong>
+		
+
+     	<!-- This next line gets the content from talks.cam -->
+		<script language="javascript" src="<%= @url %>"></script>
+		<!-- That's all folks! -->     
+
+	
+ <!-- end body text -->
+    </td>
+
+    <td width="2%">&nbsp;</td>
+
+    <td width="16%" valign="top">
+     <!-- start of extra links -->
+     <span class="newshead4">Useful links</span><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />      
+
+     <table cellpadding="2" cellspacing="0" border="0" width="100%">
+      <tr>
+       <td bgcolor="#0099CC" nowrap="nowrap"><span class="othernews">Museums/galleries</span></td>
+      </tr>
+     </table>
+     <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.lib.cam.ac.uk/" class="nav">University Library</a><br />
+     <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.fitzmuseum.cam.ac.uk/" class="nav">Fitzwilliam Museum</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://museum.archanth.cam.ac.uk/" class="nav">Museum of Archaeology &amp; Anthropology</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.classics.cam.ac.uk/museum/" class="nav">Museum of Classical Archaeology</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.hps.cam.ac.uk/whipple/" class="nav">Whipple Museum of the History of Science</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.sedgwickmuseum.org/" class="nav">Sedgwick Museum of Earth Sciences</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.zoo.cam.ac.uk/museum/" class="nav">University Museum of Zoology</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.kettlesyard.co.uk/" class="nav">Kettle's Yard</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.botanic.cam.ac.uk/" class="nav">Botanic Garden</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.plantsci.cam.ac.uk/plantsci/facilities/herbarium.html" class="nav">The Herbarium</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.spri.cam.ac.uk/" class="nav">Scott Polar Research Institute</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.cam.ac.uk/cambarea/events/museums.html" class="nav">Other Museums &amp; Galleries in Cambridge</a><br />
+     <br />
+      
+
+     <table cellpadding="2" cellspacing="0" border="0" width="100%">
+      <tr>
+       <td bgcolor="#0099CC" nowrap="nowrap"><span class="othernews">Entertainment</span></td>
+      </tr>
+     </table>
+     <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.adc-theatre.cam.ac.uk/" class="nav">ADC Theatre</a><br />
+     <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.cam.ac.uk/cambarea/events/cinemas.html" class="nav">cinemas</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.cambridge.gov.uk/leisure/lcard.htm" class="nav">City Leisurecard</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.cam.ac.uk/cambarea/events/dancing.html" class="nav">dancing</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.cam.ac.uk/cambarea/events/music.html" class="nav">music venues</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.cam.ac.uk/cambarea/events/theatres.html" class="nav">theatres</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <a href="http://www.cam.ac.uk/cambarea/events/other.html" class="nav">other relevant links</a><br />
+      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+     <br />
+     <br />
+     <br />
+     <br />
+      <!-- end of extra links -->
+      <!-- end left navigation -->
+    </td>
+   </tr>
+  </table>
+  <!-- end contents -->
+  <!-- footer -->
+  <br />
+  <br />
+   
+
+  <table cellpadding="0" cellspacing="0" border="0" width="98%">
+   <tr>
+    <td bgcolor="#0099CC" colspan="2" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="4" border="0" alt="" /></td>
+   </tr>
+
+   <tr>
+    <td bgcolor="#CCCCCC" colspan="2" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="2" border="0" alt="" /></td>
+   </tr>
+
+   <tr>
+    <td>
+     <p class="footer"><span class="copyright">&copy; University of Cambridge March 1998-2005</span><br />
+      Information provided by <a href="mailto:events@admin.cam.ac.uk">events@admin.cam.ac.uk</a></p>
+    </td>
+   </tr>
+  </table>
+  <!--  end footer -->
+ </body>
+<!--Validated, User: webman, Date: Thu May 29 16:28:54 BST 2003, MD5: 3541a0acce0d25c1b11a800a9fa396dd-->
+</html>
+
+
+<!--Version 1.8.6-->

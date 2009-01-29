@@ -1,0 +1,54 @@
+<div class='user'>
+<%= logo @user, :medium %>
+<h1><%= @user.name%></h1>
+<p class='actions'>
+	<% if @user.editable? %>
+		<%= link_to 'Edit these details', :action => "edit", :id => @user  %>
+	<% end %>
+</p>
+
+<% if @show_message %>
+<p id='redirect_to_original_destination' class='message'>
+Click <%= link_to 'here', login_url(:action => :return_to_original_url )%> to return to the page you were on when you logged in.
+</p>
+<% end %>
+
+<table>
+<tr><td>Name:</td><td><%= @user.name %></td></tr>
+<tr><td>Affiliation:</td><td><%= @user.affiliation %></td></tr>
+<tr><td>E-mail:</td><td><%= User.current ? mail_to(@user.email) : "" %> (only provided to users who are <%= link_to 'logged into talks.cam', login_url(:return_url => request.request_uri) %>)</td></tr>
+<tr><td>Last login:</td><td><%= @user.last_login %></td></tr>
+</table>
+
+
+
+<h2>Public lists managed by <%= @user.name %></h2>
+
+<ul>
+<% for list in @user.lists.sort_by { |list| list.name } %>
+	<% next if list.ex_directory? %>
+	<li><%= link_list list %></li>
+<% end %>
+</ul>
+
+<h2>Talks given by <%= @user.name %></h2>
+
+<p>Obviously this only lists talks that are listed through talks.cam. Furthermore, this facility only works if the speaker's e-mail was specified in a talk. Most talks have not done this.</p>
+
+<ul>
+<% for talk in @user.talks %>
+	<li><%= link_talk talk %></li>
+<% end %>
+</ul>
+
+<h2>Talks organised by <%= @user.name %></h2>
+
+<p>This list is based on what was entered into the 'organiser' field in a talk. It may not mean that <%= @user.name %> actually organised the talk, they may have been responsible only for entering the talk into the talks.cam system.</p>
+
+<ul>
+<% for talk in @user.talks_organised %>
+	<li><%= link_talk talk %></li>
+<% end %>
+</ul>
+
+</div>

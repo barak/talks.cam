@@ -1,0 +1,26 @@
+<h1 id="statistics">Statistics</h1>
+
+<p>The following statistics were created from the talks.cam database on <%= Time.now %>.</p>
+
+<h2>Users</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><td>Logged in within the last month</td><td><%= @number_of_recent_users %></td></tr>
+	<tr><td>Total</td><td><%= @number_of_users %></td></tr>
+</table>
+
+<h2>Talks</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><td>Past</td><td><%= @number_of_past_talks %></td></tr>
+	<tr><td>Future</td><td><%= @number_of_future_talks %></td></tr>
+	<tr><td>Total</td><td><%= @number_of_talks %></td></tr>
+</table>
+
+<h2>Lists</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><td>Series</td><td><%= @number_of_series %></td></tr>
+	<tr><td>Listings</td><td><%= @number_of_listings %></td></tr>
+	<tr><td>Venues</td><td><%= @number_of_venues %></td></tr>
+	<tr><td>User favourites</td><td><%= @number_of_user_favourites  %></td></tr>
+	<tr><td>Total</td><td><%= @number_of_lists %></td></tr>
+	
+</table>

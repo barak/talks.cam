@@ -1,0 +1,12 @@
+<div class='minimalist'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+
+<% for talk in @talks %>
+<p class='<%= cycle("even", "odd") %>'>
+	<span class='title'><%= link_talk talk %></span>, 
+	<span class='speaker'><%= talk.name_of_speaker %></span>.
+</p>
+<% end %>
+</div>

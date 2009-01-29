@@ -1,0 +1,16 @@
+<div class='index'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+<% if @list_details %>
+	<%= render :partial => 'list_details'%>
+<% end %>
+
+<p class='count'><%= upcoming_link %> and <%= archive_link %>.</p>
+
+
+<%= render :partial => 'simple_talk', :collection => @talks %>
+
+<script>Behaviour.register(list_rules);</script>
+<p>If you have a question about this list, please contact: <%= @list.users.map {|user| link_user( user ) }.join('; ') %>.  If you have a question about a specific talk, click on that talk to find its organiser.</p>
+</div>

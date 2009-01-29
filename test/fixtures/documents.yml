@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 2
+  name: First page
+  body: Some stuff on the first page
+second:
+  id: 1
+  name: Second page
+  body: Some stuff on the second page
+  

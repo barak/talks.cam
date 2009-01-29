@@ -1,0 +1,22 @@
+
+<div class='listdetail click'>
+	<%= link_to logo(@list, :medium), list_details_url( :id => @list ) %>
+<h1><%= link_list @list %></h1>
+
+<p class='actions'>
+	<%= add_list_to_list_link %>
+	<%= subscribe_by_email_link %>
+	<%= link_to 'Further detail', list_details_url( :id => @list ), :class => 'click' %>
+<% if @list.editable? %>
+	<%= link_to 'Edit this list', list_details_url( :id => @list, :action => "edit" ) %>
+<% end %>
+	<br/><%= link_to 'Subscribe using ical/vcal', {:controller => 'show', :action => 'ics', :id => @list, :only_path => false, :protocol => 'webcal://'}, {:style => 'margin-right: 0px'} %> <%= document('Help with icalendar', false, '(Help)') %>
+</p>
+
+
+<%= @list.details_filtered %>
+
+<%= render :partial => 'shared/tell_a_friend', :object => @list %>
+
+<!-- <%= auto_discovery_link_tag(:rss, {:action => "rss", :id => @list}) %> -->
+</div>

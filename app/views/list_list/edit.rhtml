@@ -1,0 +1,13 @@
+<h1>Lists included in <%= link_list(@list) %></h1>
+
+<p>All talks in these lists are included by <%= @list.name %>; to add other lists or talks here, go to them and select 'Add to my list(s)'</p>
+<ul>
+	<% for list_list in @list_lists %>
+	<li><%= link_list list_list.child %> <%= link_to '(remove)', include_list_url(:id => list_list.id, :action => :destroy, :return_to_edit => '1') %></li>
+	<% end %>
+</ul>
+<% if @list_lists.empty? %>
+<p>(none)</p>
+<% end %>
+
+<p><%= link_to "Return to edit menu", list_details_url(:action => 'edit', :id => @list.id) %>.</p>

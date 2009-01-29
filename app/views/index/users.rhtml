@@ -1,0 +1,11 @@
+<h1>Users starting with <%= params[:letter ]%></h1>
+
+<%= render :partial => "selector" %>
+
+<ul>
+<% @users.each do |user| %>
+	<li><%= link_to user.name_in_sort_order, user_url(:id => user.id) %></li>
+<% end %>
+</ul>
+
+<p>Only users who manage a list or who have organised or given a talk are shown. This status is only updated once a day.</p>

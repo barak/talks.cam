@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<%= render 'shared/header' %>
+<body class="<%= body_class %>">
+<%= render 'shared/navigationbar' %>
+
+<div id="content"><a name="startcontent" id="startcontent"></a><!-- this is the anchor for the skiplink -->
+
+<table class='front' summary="page content">
+	<tr>
+		<td class="left">
+			<%= render :partial => 'leftbar' %>
+		</td>
+		<td rowspan='2' class="main">
+			<%= yield %>
+		</td>
+	</tr>
+</table>
+
+
+</div>
+<!-- end contents -->
+<%= render 'shared/footer'%>
+</body>
+</html>
+

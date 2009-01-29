@@ -1,0 +1,21 @@
+<!-- Layout based on http://www.asnc.cam.ac.uk/events.htm -->
+<div class='asnc_regular'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+
+<% @talks.group_by(&:term).sort_by { |term,talks| term }.each do |term,talks| %>
+	<h4><a name="regularmt"></a><%= term_string term %></h4>
+	<% talks.each do |talk| %>
+	      <ul>
+	        <li>Date: <%= talk.start_time.strftime('%A %d %B %Y, %I:%M %p' )%></li>
+	        <li>Venue: <%= link_list talk.venue %></li>
+	        <li>Speaker: <%= talk.name_of_speaker %></li>
+		<% if talk.special_message && !talk.special_message.empty? %>
+			<li><%= "\n#{talk.special_message}" %></li>
+		<% end %>
+	        <li>Title: <i><%= link_talk talk %></i></li>
+	      </ul>
+	<% end %>
+<% end %>
+</div>

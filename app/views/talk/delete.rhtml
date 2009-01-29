@@ -1,0 +1,7 @@
+<%= form_tag talk_url(:action => 'delete', :id => @talk.id, :list => @talk.series.id ) %>
+<h1>Are you sure?</h1>
+
+<p>Please confirm that you wish to permanently delete <em><%= @talk.title %></em>. This cannot be undone.</p>
+
+<p><%= submit_tag 'Delete Talk'%> or <%= link_to 'leave it alone', talk_url(:id => @talk.id) %></p>
+</form>

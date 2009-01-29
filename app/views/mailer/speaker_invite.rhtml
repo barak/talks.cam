@@ -1,0 +1,22 @@
+Dear <%= @user.name %> 
+
+<%= @talk.organiser.name %> is organising a talk and has put you down as the speaker.
+
+The details so far are:
+Series: <%= @talk.series.name %>
+Title: <%= @talk.title %>
+Date: <%=  @talk.start_time.strftime('%A %d %B %Y, %H:%M - ')+@talk.end_time.strftime('%H:%M') %>
+Venue: <%= @talk.venue && @talk.venue.name %>
+Abstract: <%= @talk.abstract %>
+
+Because you are the speaker, you can edit the details of this talk by going to:
+
+<%= @url %>
+
+To log in you will need to enter your e-mail address and a password, both of which have been sent to you in a separate e-mail. If this other e-mail doesn't arrive, please go to:
+
+http://talks.cam.ac.uk/login/send_password?email=<%= @user.email %>
+
+If you have any problems, please contact <%= @talk.organiser.name %> at <%= @talk.organiser.email %> in the first instance.  
+
+webmaster@talks.cam.ac.uk

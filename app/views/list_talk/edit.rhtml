@@ -1,0 +1,14 @@
+<h1>Talks included in <%= link_list(@list) %></h1>
+
+<p>Each list advertises (a) talks that it owns; (b) talks in lists that have been included into the list; (c) talks (owned by other lists) that have been specially added to this list by a manager. The talks below are just the ones in category (c). To remove talks in category (c), use the 'remove' link below. To edit or delete a talk in category (a) or (b), go to that talk's page.</p>
+
+<ul>
+	<% for list_talk in @list_talks %>
+	<li><%= link_talk list_talk.talk %> <%= link_to '(remove)', include_talk_url(:id => list_talk.id, :action => :destroy, :return_to_edit => '1') %></li>
+	<% end %>
+</ul>
+<% if @list_talks.empty? %>
+<p>(none)</p>
+<% end %>
+
+<p><%= link_to "Return to edit menu", list_details_url(:action => 'edit', :id => @list.id) %>.</p>

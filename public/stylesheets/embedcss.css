@@ -1,0 +1,115 @@
+a img {
+	border: none;
+}
+
+div.old_talks div.talklist_date { background-color: #dddddd; font-weight: bold; margin: 2em 0em 0em 0em;}
+div.old_talks p { margin: 0.5em 0 0 0; }
+div.old_talks div.talklist_header { font-weight: bold; }
+div.old_talks span.special_message { color: #900; font-weight: bold; }
+
+div.simplewithlogo h2 { color: #990000; font-size: 0.8em; font-weight: normal; margin: 2em 0 0 0;	border-bottom: none;}
+div.simplewithlogo div.talk { padding: 0.2em 0 0.2em 0; }
+div.simplewithlogo div.talk h3 { font-size: 1em; font-weight: normal; margin: 0 0 0 40px; }
+div.simplewithlogo div.talk p { margin: 0 0 0 40px; }
+div.simplewithlogo div.talk img { float: left; max-width: 32px; }
+div.simplewithlogo a { text-decoration:none; color: #000;}
+div.simplewithlogo a:visited { text-decoration:none; color: #000;}
+div.simplewithlogo a:hover 	{ text-decoration:underline; color: #003399;}
+
+div.index a {text-decoration:none; }
+div.index a:link {color: #003399;}
+div.index a:visited {color: #003399;}
+div.index a:link:hover, a:visited:hover { color: #cc3333; text-decoration: underline; }
+div.index div.listdetail {display: none }
+div.index p.actions { display: none }
+div.index p.count { display: none }
+div.index div.simpletalk { padding: 0.5em 0 0.5em 0; }
+div.index div.simpletalk h2 { color: #990000; margin: 0 0 0 0px;}
+div.index div.simpletalk h2 a { color: #990000;}
+div.index div.simpletalk h2 a:visited { color: #990000;}
+div.index div.simpletalk p {margin: 0 0 0 0em;}
+div.index div.simpletalk p a { color: black; }
+div.index div.simpletalk p a:visited { color: black; }
+div.index div.simpletalk p.series { font-style: italic;}
+div.index p.urgent { font-weight: bold;}
+
+div.table table {border-collapse: collapse; border: 1px #000 solid;}
+div.table tr.header { color: #fff; background-color: #000; }
+div.table th { padding: 0.5em 0.5em 0.5em 0.5em;}
+div.table td.standard { padding: 1em 0.5em 1em 0.5em;}
+div.table tr.even { background-color: #ccc; }
+div.table td.date { width: 6em;}
+div.table a 				{ text-decoration:none; color: #000;}
+div.table a:visited { text-decoration:none; color: #000;}
+div.table a:hover 	{ text-decoration:underline; color: #003399;}
+div.table td.special { padding: 1em 0.5em 0em 0.5em;}
+div.table td.special_message { text-align: center; font-weight: bold; padding: 0em 0.5em 1em 0.5em; }
+
+div.minimalist { border: 1px #000 solid; }
+div.minimalist p { margin: 0; padding: 0.1em 0.1em 0.1em 0.5em}
+div.minimalist p.even { background-color: #FFE9BF; }
+div.minimalist p.odd { background-color: #FFD380; }
+div.minimalist span.title { font-weight: bold}
+div.minimalist a { text-decoration:none; color: #000;}
+div.minimalist a:visited { text-decoration:none; color: #000;}
+div.minimalist a:hover 	{ text-decoration:underline; color: #003399;}
+
+div.detailed h2 { color: #990000; margin: 1.5em 0 0 0; padding: 0}
+div.detailed h2 a { color: #990000; text-decoration:none; }
+div.detailed h2 a:visited { color: #990000; text-decoration:none;}
+div.detailed h2 a:hover { color: #990000; text-decoration:underline;}
+div.detailed a { text-decoration:none; color: #000;}
+div.detailed a:visited { text-decoration:none; color: #000;}
+div.detailed a:hover 	{ text-decoration:underline; color: #003399;}
+div.detailed p.urgent { font-weight: bold;}
+
+div.oneday table {border-collapse: collapse; border: 1px #000 solid;}
+div.oneday tr.header { color: #fff; background-color: #000; }
+div.oneday th { padding: 0.5em 0.5em 0.5em 0.5em;}
+div.oneday td.standard { padding: 1em 0.5em 1em 0.5em;}
+div.oneday tr.even { background-color: #ccc; }
+div.oneday td.time { width: 6em;}
+div.oneday td.special { padding: 1em 0.5em 0em 0.5em;}
+div.oneday td.special_message { text-align: center; font-weight: bold; padding: 0em 0.5em 1em 0.5em; }
+div.oneday a { text-decoration:none; color: #000;}
+div.oneday a:visited { text-decoration:none; color: #000;}
+div.oneday a:hover 	{ text-decoration:underline; color: #003399;}
+
+div.asnc_regular {background-color: #ffffff; color: #000000;}
+div.asnc_regular p, ul, ol, li, table, td {font-family: Arial, Geneva, sans-serif;}
+div.asnc_regular a {text-decoration: none;}
+div.asnc_regular a:link {color: black }
+div.asnc_regular a:visited {color: black }
+div.asnc_regular a:hover {text-decoration: underline; color: black }
+div.asnc_regular a:active {color: black }
+div.asnc_regular h4 {font-weight: bold; font-style: italic; font-size: 100%; color: #000000; font-family: Arial, Geneva, sans-serif;}
+
+div.heritage_group { font-family: Arial, Helvetica, sans-serif; }
+div.heritage_group a {text-decoration: none;}
+div.heritage_group a:link {color: black }
+div.heritage_group a:visited {color: black }
+div.heritage_group a:hover {text-decoration: underline; color: black }
+div.heritage_group a:active {color: black }
+div.heritage_group h2 {font-weight: bold; font-size: 110%; color: #333333;}
+
+div.cam_events .redmark { color: red; }
+div.cam_events .date_month { font-weight: bold; font-size: 120%; color: #333333; font-family: Arial, Helvetica, sans-serif; margin-top: 10px; }
+div.cam_events .date_date { font-weight: bold; font-size: 110%; color: #333333; font-family: Arial, Helvetica, sans-serif; margin-top: 10px; margin-bottom: 5px; }
+div.cam_events .category { font-weight: bold; font-size: 120%; color: #990000; font-family: Arial, Helvetica, sans-serif; margin-top: 10px; margin-bottom: 2px;}
+div.cam_events a:link { color: #003399; text-decoration: none; font-family: Arial, Helvetica, sans-serif; }
+div.cam_events a:visited { color: #663399; text-decoration: none; font-family: Arial, Helvetica, sans-serif; }
+div.cam_events a:hover { text-decoration: underline; font-family: Arial, Helvetica, sans-serif; }
+div.cam_events a:active { color: #ff0000; text-decoration: none; font-family: Arial, Helvetica, sans-serif; }
+div.cam_events small.venue a { color:black; }
+
+div.zoology p, ul, ol, li, table, td, dt, dd {font-family: Arial, Helvetica, sans-serif; }
+div.zoology a {text-decoration:none; color: black; }
+div.zoology a:link {color: black; font-family: Arial, Helvetica, sans-serif;}
+div.zoology a:visited {color: black; font-family: Arial, Helvetica, sans-serif;}
+div.zoology a:link:hover, a:visited:hover {text-decoration: underline; font-family: Arial, Helvetica, sans-serif;}
+div.zoology a[href]:active {color: black; font-family: Arial, Helvetica, sans-serif;}
+div.zoology .bigb {font-size: 110%; font-weight: bold;} 
+div.zoology p { }
+div.zoology h4 {font-weight: bold; font-size: 90%; color: #333333; font-family: Arial, Helvetica, sans-serif;}
+div.zoology span.special_message { color: #F00;}
+div.zoology span.special_message a { color: #F00;}

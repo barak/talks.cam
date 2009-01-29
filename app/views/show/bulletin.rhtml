@@ -1,0 +1,26 @@
+<div>
+<% @errors.each do |error| %>
+<span class='error'><%= error %>. </span>
+<% end %>
+  <% datestring = "" %>
+  <% for talk in @talks %>
+    <% prevdatestring = datestring %>
+    <% datestring = talk.start_time && talk.start_time.strftime("%A %d %B %Y") %>
+    <% if prevdatestring != datestring %>
+      <hr style="width: 100%"/>
+      <p style="margin-bottom: 2em"><%= datestring %></p>
+    <% end %>
+    <table style="width: 100%; border-collapse: collapse">
+      <tr>
+        <td style="width: 9em; margin-left: 0px"><%= talk.start_time && talk.start_time.strftime("%H:%M") %>-<%= talk.end_time && talk.end_time.strftime("%H:%M") %></td>
+        <td style="margin-left: 0px"><%= talk.name_of_speaker %></td>
+        <td style="text-align: right; margin-left: 0px"><%= talk.venue && talk.venue.name %></td>
+      </tr>
+    </table>
+    <p style="text-align: center; margin: 0px"><b><%= talk.title %></b></p>
+    <% if talk.special_message && !talk.special_message.empty? %>
+      <p style="text-align: center; margin: 0px"><i><%= talk.special_message %></i></p>
+    <% end %>
+    <p style="text-align: center; margin-top: 0px; margin-bottom: 1em"><%= talk.series && talk.series.name %></p>
+  <% end %>
+</div>

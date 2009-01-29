@@ -1,0 +1,9 @@
+<h1>Talks starting with <%= params[:letter ]%></h1>
+
+<%= render :partial => "selector" %>
+
+<ul>
+<% @talks.each do |talk| %>
+	<li><%= link_talk talk %></li>
+<% end %>
+</ul>

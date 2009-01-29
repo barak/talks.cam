@@ -1,0 +1,34 @@
+<div class='old_talks'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+<% suffix = params['suffix'] ? "_#{params['suffix']}" : ""%>
+<div class="talklist_block<%= suffix %>">
+	<% @talks.group_by(&:date).sort.each do |date,talks| %>
+		<div class="talklist_date<%= suffix %>"><%= date.to_time.strftime '%A %d %B %Y' %></div>
+		<% for talk in talks %>
+		<div class="talklist_entry<%= suffix %>">
+			<% if talk.series.image_id? && (params['showimg'] != '0') %>
+				<%= link_to image_tag( picture_url(:id => talk.series.image_id, :geometry => '32x32' ), :alt => "#{talk.series.name} logo", :class => 'logo', :style => 'float: left; margin: 4px;',:border => '0'), list_url(:id => talk.series) %>
+				<p style="margin-left: 42px;">
+			<% else %>
+				<p style="">
+			<% end %>
+				<div class="talklist_speaker<%= suffix %>"><%= talk.name_of_speaker %></div>
+				<div class="talklist_header<%= suffix %>"><%= talk.title %> <span class='special_message'><%= talk.special_message %></span></div>
+				<div class="talklist_details<%= suffix %>">
+					<% unless params['showseries'] == '0' %>
+					Series: <%= link_list talk.series %>,
+					<% end %>
+					Time: <%= format_hours_of_talk talk, false %>,
+					<% unless params['showvenues'] == '0' %>
+					Venue: <%= link_list talk.venue %>
+					<% end %>
+					&nbsp;[<%= link_to 'details', talk_url(:id => talk.id) %>]
+				</div>
+			</p>
+		</div>
+		<% end %>
+	<% end %>
+</div>
+</div>

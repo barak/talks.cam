@@ -1,0 +1,6 @@
+<% url = url_for_view(custom_view) %>
+<p>Cut and paste this into your web page where you wish the list to appear:<p>
+<code>
+&lt;script language="javascript" type="text/javascript" src="<%= url %>"&gt;&lt;/script&gt;
+</code>
+<p>To see how this might work, take a look at the source of our <%= link_to 'demonstration page',{:action => 'embed_example', :url => url},{:target => 'demo' } %>.</p>

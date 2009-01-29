@@ -1,0 +1,25 @@
+<!-- Layout based on http://www.arch.cam.ac.uk/heritage/seminars.html -->
+<div class='heritage_group'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+<% if usual_details[:venue_name] || usual_details[:time_slot] %>
+	<p>Talks usually take place<%= usual_details[:time_slot] ? " between  #{usual_details[:time_slot].join(' and ')}" : "" %><%= usual_details[:venue_name] ? " in the #{usual_details[:venue_name]}" : ""%>.</p>
+<% end %>
+<% @talks.group_by(&:term).sort_by { |term,talks| term }.each do |term,talks| %>
+	<h2><%= term_string term %></h2>
+
+ 	<ul>
+	<% talks.each do |talk| %>
+   		<li><%= unusual?(talk,:time_slot) ? talk.start_time.strftime('%A %d %B %Y, %I:%M %p' ) : talk.start_time.strftime('%A %d %B')%>---<%= talk.name_of_speaker %>: `<%= link_talk talk %>'
+		<% if talk.special_message && !talk.special_message.empty? %>
+			<%= "\n#{talk.special_message}" %>
+		<% end %>
+		<% if unusual? talk, :venue_name %>
+			. <%= link_list talk.venue %>
+		<% end %>
+		</li>
+	<% end %>
+	</ul>
+<% end %>
+</div>

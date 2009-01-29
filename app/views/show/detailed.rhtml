@@ -1,0 +1,21 @@
+<div class='detailed'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+<% for talk in @talks %>
+<h2><%= link_talk talk %></h2>
+
+<%= talk.abstract_filtered %>
+
+<% if talk.special_message && !talk.special_message.empty? %>
+	<p class='urgent'><%= talk.special_message %></p>
+<% end %>
+
+<ul>
+	<li>Part of <%= link_list talk.series %></li>
+	<li>Speaker: <%= link_to_if talk.speaker, talk.name_of_speaker, user_url(:id => talk.speaker) %></li>
+	<li><%= format_time_of_talk talk %></li>
+	<li><%= link_list talk.venue %>.</li>
+</ul>
+<% end %>
+</div>

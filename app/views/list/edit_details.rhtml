@@ -1,0 +1,6 @@
+<script type="text/javascript">Behaviour.register(list_edit_rules)</script>
+
+<h1><%= @list.name %></h1>
+<% form_tag( {:action => 'update', :id => @list}, :multipart => true, :id => 'editlist') do %>
+<%= render :partial => 'list_details' %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Lists starting with <%= params[:letter ]%></h1>
+
+<%= render :partial => "selector" %>
+
+<ul>
+<% @lists.each do |list| %>
+	<li><%= link_list list %></li>
+<% end %>
+</ul>

@@ -1,0 +1,14 @@
+cal = Icalendar::Calendar.new
+
+@talks.each do |talk|
+	event = cal.event
+	event.start = DateTime.parse( talk.start_time.getgm.to_s ).to_ical( true ) # True means GMT
+	event.end = DateTime.parse( talk.end_time.getgm.to_s ).to_ical( true ) # True means GMT
+	event.timestamp = DateTime.now
+	event.summary = escape_for_ical("#{talk.title} by #{talk.name_of_speaker}")
+	event.description = escape_for_ical(talk.abstract || "")
+	event.location = escape_for_ical(talk.venue.name)
+	event.url = talk_url( :id => talk )
+end
+
+cal.to_ical

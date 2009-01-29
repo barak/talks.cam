@@ -1,0 +1,23 @@
+<ul class='indexselector'>
+	<% ['Lists','Venues','Talks','Users','Dates'].each do |category| %>
+		<% if category.downcase == @controller.action_name %>
+			<li class='selected'><%= category %>
+		<% else %>
+			<% if category == 'Dates' %>
+				<li><%= link_to category, date_index_url %></li>
+			<% else %>
+				<li><%= link_to category, :action => category.downcase, :letter => params[:letter] %></li>
+			<% end %>
+		<% end %>
+	<% end %>
+</ul>
+
+<ul class='indexselector'>
+	<% ('A'..'Z').each do |letter| %>
+		<li class='<%= (letter == params[:letter]) ? 'selected' : '' %>' >
+			<%= link_to_unless_current letter, :letter => letter %>
+		</li>
+	<% end %>
+	<li class='<%= (params[:letter] == 'new') ? 'selected' : '' %>'><%= link_to_unless_current 'New', :letter => 'new' %></li>
+	<li class='<%= (params[:letter] == 'updated') ? 'selected' : '' %>'><%= link_to_unless_current 'Updated', :letter => 'updated' %></li>
+</ul>

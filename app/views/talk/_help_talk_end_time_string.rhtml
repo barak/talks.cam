@@ -1,0 +1,9 @@
+<div class='help'>
+	<p>Please enter the start and end time of the talk in the 24-hour clock form HH:MM, e.g. 20:30. Or pick from one of the 'usual' timings below.</p>
+
+	<ul>
+		<%= render :partial => "timing", :collection => @usual_details.timings %>
+	</ul>
+</div>
+
+<div style='height:2em;'>&nbsp;</div>

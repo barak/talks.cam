@@ -1,0 +1,11 @@
+<h1>Managers of <%= link_list(@list) %></h1>
+
+<p>Each talk also has an organiser.  Please contact them in the first instance if you have a query about a particular talk.</p>
+
+<ul id='managers'>
+	<% for user in @users %>
+		<li><%= link_user user %></li>
+	<% end %>
+</ul>
+
+<p> <%= link_to "Return to #{@list.name}", list_url(:id => @list.id) %>.</p>

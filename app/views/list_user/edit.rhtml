@@ -1,0 +1,20 @@
+<h1>Managers of <%= link_list(@list) %></h1>
+
+<ul id='managers'>
+	<% for list_user in @list_users %>
+		<% manager = list_user.user %>
+		<li id='manager-<%= manager.id %>'>
+			<%= manager.email %> [<%= manager.name %>]
+			<% unless manager == User.current %>
+				<%= link_to '(remove)', list_user_url(:action => 'destroy', :id => list_user.id ) %>
+			<% end %>
+		</li>
+	<% end %>
+	<li id='add-manager'>
+		<% form_for(:list_user, :url => list_user_url(:action => 'create')) do |f| %>
+			<%= f.hidden_field :list_id %><%= f.text_field :user_email %><%= submit_tag 'Add new manager' %>
+		<% end %>
+	</li>
+</ul>
+
+<p> <%= link_to "Return to edit menu", list_details_url(:action => 'edit', :id => @list.id) %>.</p>

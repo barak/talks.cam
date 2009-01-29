@@ -1,0 +1,22 @@
+<div class='table'>
+<% @errors.each do |error| %>
+<span class='error'><%= error %>. </span>
+<% end %>
+<table>
+	<tr class='header'><th>Date</th><th>Speaker</th><th>Title</th><th>Venue</th></tr>
+	<% for talk in @talks %>
+	<% row_class = (talk.special_message && !talk.special_message.empty?) ? 'special' : 'standard' %>
+	<tr class='<%= tr_class = cycle("even", "odd") %>'>
+		<td class='date <%= row_class %>'><%= talk.start_time.to_formatted_s(:short) %></td>
+		<td class='speaker <%= row_class %>'><%= talk.name_of_speaker %></td>
+		<td class='title <%= row_class %>'><%= link_talk talk %></td>
+		<td class='venue <%= row_class %>'><%= link_list talk.venue %></td>
+	</tr>
+	<% if talk.special_message && !talk.special_message.empty? %>
+	<tr class='<%= tr_class %>'>
+		<td colspan='4' class='special_message'><%= talk.special_message %></td>
+	</tr>
+	<% end %>
+	<% end %>
+</table>
+</div>

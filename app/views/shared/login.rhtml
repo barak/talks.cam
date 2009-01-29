@@ -1,0 +1,4 @@
+<h2>Log in</h2>
+<%= link_to 'Cambridge users (raven)'+arrow, login_url(:action => 'go_to_raven', :return_url => request.request_uri), :class => 'click'  %>
+<%= link_to 'Other users'+arrow, login_url(:action => 'other_users', :return_url => request.request_uri ) %>
+<%= link_to 'No account?'+arrow, new_user_url %>

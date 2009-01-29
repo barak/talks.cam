@@ -1,0 +1,24 @@
+<h1>Update your details</h1>
+
+<% if @show_message %>
+<p id='ask_for_more_information' class='message'>
+Before you continue on to use talks.cam, we would be grateful if you could fill out these details:
+</p>
+<% end %>
+
+<%= error_messages_for :user %>
+
+<% form_for(:user, :url => user_url(:action => 'update', :id => @user), :html => {:multipart => true}) do |user| %>
+<table>
+	<tr><td>E-mail:</td><td><%= user.text_field :email %></td><td>e.g. no.one@no.where.com</td></tr>
+	<% unless @user.crsid %>
+		<tr><td colspan='3'>Please note, you can only log in using raven if your email is of the form crsid@cam.ac.uk (e.g. tamc2@cam.ac.uk).</td></tr>
+	<% end %>
+	<tr><td>Name:</td><td><%= user.text_field :name %></td><td>e.g. Dr No One</td></tr>
+	<tr><td>Affiliation:</td><td><%= user.text_field :affiliation %></td><td>e.g. University of Nowhere, Kansas</td></tr>
+		<tr><td>A picture:</td><td><%= user.file_field :image %></td><td><%= logo @user, :medium %></td></tr>
+		<tr><td>Reminders:</td><td colspan='2'><%= user.check_box :send_emails_about_personal_list %> Send emails reminding you of talks that you have added to your personal list.</td></tr>
+		<tr><td></td><td colspan='2'><%= link_to "Download talks on your personal list to your calendar", :controller => 'show', :action => 'ics', :id => @user.lists.first, :only_path => false, :protocol => 'webcal://'   %> <br/>(Requires Apple iCal, Mozilla Sunbird, Ximian Evolution or the Remote Calendars plug-in for Microsoft Outlook).</td></tr>
+		<tr><td></td><td><%= submit_tag 'Save details' %></td><td></td></tr>
+</table>
+<% end %>

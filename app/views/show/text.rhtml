@@ -1,0 +1,20 @@
+<% @errors.each do | error | %>
+Error: <%= error %>
+<% end %>
+
+<%= @list.name %>
+<%= @list.details %>
+<%= @talks.empty? ? '(No talks)' : ''%>
+<% @talks.group_by(&:date).sort_by { |date,talks| date }.each do |date,talks| %>
+<%= date.to_time.strftime '%A %d %B %Y' %>
+
+<% talks.each do |talk| %>
+<%= talk.title.upcase %>
+<%= talk.name_of_speaker %><% if talk.special_message && !talk.special_message.empty? %><%= "\n#{talk.special_message}" %><% end %>
+<%= talk.series.name %>
+<%=  talk.start_time.strftime('%A %d %B %Y, %H:%M - ')+talk.end_time.strftime('%H:%M') %> <%= talk.venue && talk.venue.name %>
+<%= talk_url(:id => talk ) %>
+<% end %>
+<% end %>
+
+Powered by http://talks.cam.ac.uk

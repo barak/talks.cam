@@ -1,0 +1,47 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  name: List one
+  details: The first list
+two:
+  id: 2
+  name: List two
+three:
+  id: 3
+  name: List three
+four:
+  id: 4
+  name: List four
+venue:
+  id: 5
+  type: Venue
+  name: Venue one
+venue2:
+  id: 6
+  type: Venue
+  name: Venue two
+vicslist:
+  id: 7
+  name: Vics list
+  details: Vics list
+  ex_directory: true
+frontpage:
+  id: 8
+  name: Featured talks
+series:
+  id: 9
+  name: A series for a talk
+venue3:
+  id: 10
+  type: Venue
+  name: Venue three
+cavendish:
+  name: Cavendash Physical Society
+  ex_directory: "0"
+  old_id: "22"
+  details: This lecture series is attended by all researchers in the Department of Physics. Lectures usually take place alternate Wednesdays at 4.15pm in the Pippard Lecture Theatre.
+  details_filtered: "<p>This lecture series is attended by all researchers in the Department of
+    Physics. Lectures usually take place alternate Wednesdays at 4.15pm in the
+    Pippard Lecture Theatre.</p>"
+  type: Series
+  id: "5354"

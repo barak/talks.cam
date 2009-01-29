@@ -1,0 +1,57 @@
+h1. Requirements for talks2.cam
+
+Note that talks.cam has only been tested to work against rails v1.2.3
+
+This is what I did on orkney (a debian sarge installation) to get talks2 working:
+
+h2. The basics
+
+apt-get install darcs 
+apt-get install subversion subversion-tools libsv
+
+apt-get install ruby irb rdoc libopenss-ruby1.8 libzlib-ruby
+
+wget http://rubyforge.org/frs/download.php/5207/rubygems-0.8.11.tgz
+tar -xvzf rubygems-0.8.11.tgz
+cd rubygems-0.8.11
+ruby setup.rb
+
+h2. The ruby libraries
+
+gem install rails --include-dependencies
+apt-get install libfcgi-ruby1.8
+apt-get install libapache-mod-fastcgi
+apt-get install ruby1.8-dev
+apt-get install libmysql-ruby
+gem install ferret
+gem install redcloth --version 3.0.3
+apt-get install librmagick-ruby
+gem install icalendar
+apt-get install libfcgi-dev
+gem install fcgi
+apt-get remove libfcgi-ruby1.8
+gem install stemmer
+wget http://rubyforge.org/frs/download.php/7335/rb-gsl-1.7.0.tar.gz
+configure setup install
+
+h2. The database (mysql)
+
+adduser talks2
+addgroup talks2 tamc2
+mysqladmin -u root -p create talks2_production
+mysqladmin -u root -p create talks2_testing
+mysqladmin -u root -p create talks2_development
+grant usage on *.* to talks2@localhost identified by 'dreamsoffunkythings'
+grant all on talks2_development.* to talks2@localhost;
+grant all on talks2_production.* to talks2@localhost;
+grant all on talks2_testing.* to talks2@localhost;
+
+h2. The webserver
+
+chmod g+w /home/talks2 # Set the permissions
+
+# Can't get apache to work?  Trying lighttpd 
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-5.0.tar.gz
+./configure ./make ./make install etc
+wget http://www.lighttpd.net/download/lighttpd-1.4.11.tar.gz
+./configure ./make ./make install etc

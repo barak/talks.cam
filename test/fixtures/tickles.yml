@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  created_at: 2007-03-19
+  about_id: 1
+  about_type: Talk
+  sender_id: 1
+  recipient_email: person1@talks.cam.ac.uk
+  sender_email: person2@talks.cam.ac.uk
+  sender_name: person 1
+  sender_ip: 129.113.125.0.1
+two:
+  id: 2
+  created_at: 2007-03-19
+  about_id: 1
+  about_type: List
+  sender_id: 1
+  recipient_email: person1@talks.cam.ac.uk
+  sender_email: person2@talks.cam.ac.uk
+  sender_name: person 1
+  sender_ip: 129.113.125.0.1

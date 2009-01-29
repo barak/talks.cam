@@ -1,0 +1,16 @@
+<div class='simplewithlogo'>
+<% @errors.each do |error| %>
+<span class='error'>Error: <%=error%>. </span>
+<% end %>
+
+<% cluster_by_date(@talks).each do |date,talks| %>
+	<h2><%= date.strftime '%A %d %B' %></h2>
+	<% talks.each do |talk|%>
+		<div class='talk click'>
+			<%= link_to logo(talk.series) || "", list_url(:id => talk.series ) %>
+			<h3><%= link_talk talk %></h3>
+			<p><%= talk.name_of_speaker %></p>
+		</div>
+	<% end %>
+<% end%>
+</div>

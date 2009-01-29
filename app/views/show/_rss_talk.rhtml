@@ -1,0 +1,19 @@
+<div class='vevent'>
+	<%= logo(talk, :medium) %>
+	<h1 class='summary'><%= link_talk talk %></h1>
+	<div class='details'>
+		<%= talk.abstract_filtered %>
+
+		<% if talk.special_message %>
+			<p class='urgent'><%= talk.special_message %></p>
+		<% end %>
+
+		<ul>
+			<li>Speaker: <%= talk.name_of_speaker %></li>
+			<li><%= format_time_of_talk talk %></li>
+			<li>Venue: <%= link_list talk.venue %>.</li>
+			<li>Series: <%= link_list talk.series %>; organiser: <%= link_user talk.organiser %>. </li>
+		</ul>
+	</div>
+	<p><%= link_to 'Add to your calendar', talk_url(:id => talk.id, :action => 'vcal' ) %> or <%= link_to 'Include in your list', user_url(:action => 'add_talk', :talk => talk.id )%></p>
+</div>

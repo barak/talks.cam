@@ -1,0 +1,12 @@
+<div class='help'>
+	<p>Anything you write here will be displayed prominently when a talk is listed and could be used to draw attention to special or unusual aspects of this talk</p>
+
+	<p>As a short cut, you can click on some of the stock phrases below:</p>
+	<ul>
+		<% ['Canceled','Room changed','Last talk of term','Note unusual time'].each do |phrase| %>
+		<li><%= update_field 'talk_special_message', phrase %></li>
+		<% end %>
+	</ul>
+</div>
+
+<div style='height:8em;'>&nbsp;</div>

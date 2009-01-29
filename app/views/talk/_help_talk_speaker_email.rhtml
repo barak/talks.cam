@@ -1,0 +1,15 @@
+<div class='help'>
+
+<p>Please enter the speaker's e-mail address. If you do not know it, please leave it blank. As you start typing a list of suggestions will appear below. Click on a suggestion to enter their details:</p>
+
+<%= observe_field 'talk_speaker_email',  :frequency => 1, :update => 'speakers', :url => { :action=> 'speaker_email_list' }, :with => "'search=' + escape(value)" %>
+
+<ul>
+<div id='speakers'>
+</div>
+</ul>
+
+<p>If you check the box to the left then, after you click save, the speaker will be sent an e-mail message explaining how they can edit the talk. No e-mail will be sent unless the organiser's e-mail field has an e-mail address. You can do this more than once, and in doing so send your speaker several e-mails.</p>
+</div>
+
+<div style='height:14em;'>&nbsp;</div>

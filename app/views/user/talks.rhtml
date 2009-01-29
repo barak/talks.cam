@@ -1,0 +1,7 @@
+<h2>Talks by <%= @user.name %></h2>
+
+<ul>
+<% for talk in @user.talks %>
+	<li><%= link_talk talk %></li>
+<% end %>
+</ul>

@@ -1,0 +1,20 @@
+<h1 class='search'>Search for a talk, series, speaker or venue</h1>
+
+<%= render :partial => 'search' %>
+
+<% if @motd %>
+<div class='click'>
+<h1><%= document 'Message of the day' %></h1>
+<%= @motd %>
+</div>
+<% end %>
+
+<h1><%= link_list @featured_list %></h1>
+
+<% @featured_lists.each do |list| %>
+	<div><%= link_list list %></div>
+<% end %>
+
+<h1><%= link_list @featured_talks %></h1>
+
+<%= render_component :controller => 'show', :action => 'simplewithlogo', :id => @featured_talks.id, :params => {:layout => 'empty', :limit => 12 } %>

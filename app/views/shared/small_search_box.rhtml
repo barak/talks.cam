@@ -1,0 +1,4 @@
+<%= form_tag( { :controller => 'search', :action => 'results' }, {:id => 'smallsearch' } ) %>
+	<%= text_field_tag 'search', '', :size => 10 %>&nbsp;<%= submit_tag 'Go' %>
+	<%= link_to 'Browse A-Z', index_url %>
+</form>

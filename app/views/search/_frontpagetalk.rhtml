@@ -1,0 +1,3 @@
+<h2><%= link_to frontpagetalk.title, :controller => 'show', :action => 'html', :id => frontpagetalk.series, :talk => frontpagetalk.id %></h2>
+<p><%= format_time_of_talk frontpagetalk %></p>
+<p><%= frontpagetalk.name_of_speaker %>. <%= link_to frontpagetalk.venue.name, :controller => 'show', :action => 'html', :id => frontpagetalk.venue %>.</p>
