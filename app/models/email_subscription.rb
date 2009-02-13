@@ -8,6 +8,9 @@
 class EmailSubscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :list
+
+  validates_presence_of :user
+  validates_presence_of :list
   
   # For security
    def editable?
