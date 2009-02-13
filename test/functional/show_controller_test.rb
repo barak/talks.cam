@@ -300,8 +300,8 @@ class ShowControllerTest < Test::Unit::TestCase
       url = $1
       next if url == '#startcontent'
       next if url =~ /^mailto/i
-      puts @response.body unless url =~ %r{^http://}
-      assert_match %r{^http://}, url
+      puts @response.body unless url =~ %r{^(webcal|http)://}
+      assert_match %r{^(webcal|http)://}, url
     end
   end
   
