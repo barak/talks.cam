@@ -44,7 +44,7 @@ talk_in_the_past:
   series_id: 9
   start_time: <%= 1.year.ago.strftime("%Y-%m-%d %H:%M:%S") %>
   end_time: <%= (1.year - 1.hour).ago.strftime("%Y-%m-%d %H:%M:%S") %>
-talk_in_the_past:
+ex_directory:
   id: 7
   title: Ex-directory talk
   venue_id: 5
@@ -53,11 +53,12 @@ talk_in_the_past:
   end_time: <%= (1.year + 1.hour).from_now.strftime("%Y-%m-%d %H:%M:%S") %>
   ex_directory: true
 <% 1.upto(12) do |month| %>
+  # From midnight to 1am on the first of each month, this year
 talk_in<%= month %>:
   id: <%= 7+month %>
   title: a talk in <%= month %>
   venue_id: 5
   series_id: 9
-  start_time: <%= Time.local(Time.now.year,month,1,0,1).strftime("%Y-%m-%d %H:%M:%S") %>
-  end_time: <%= Time.local(Time.now.year,month,2,0,1).strftime("%Y-%m-%d %H:%M:%S") %>    
+  start_time: <%= Time.local(Time.now.year,month,1,0,0).strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time: <%= Time.local(Time.now.year,month,1,1,0).strftime("%Y-%m-%d %H:%M:%S") %>    
 <% end %>

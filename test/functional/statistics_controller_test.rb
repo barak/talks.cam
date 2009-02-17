@@ -17,9 +17,9 @@ class StatisticsControllerTest < Test::Unit::TestCase
     get :index
     assert_equal 6,  assigns(:number_of_users)
     assert_equal 1,  assigns(:number_of_recent_users)
-    assert_equal 18, assigns(:number_of_talks)
-    assert_equal 9,  assigns(:number_of_past_talks)
-    assert_equal 9, assigns(:number_of_future_talks)
+    assert_equal 19, assigns(:number_of_talks)
+    assert_equal (Time.now.month+1),  assigns(:number_of_past_talks)
+    assert_equal 19-(Time.now.month+1), assigns(:number_of_future_talks)
     assert_equal 6,  assigns(:number_of_user_favourites)
     assert_equal 3,  assigns(:number_of_venues)
     assert_equal 1,  assigns(:number_of_series)
