@@ -31,6 +31,12 @@ class ListControllerTest < Test::Unit::TestCase
     put :create, {:list => {:name => 'new list', :details => 'new list details', :ex_directory => 1, :image => uploaded_gif(gif_image)}}
     assert_redirect_to_login
   end
+
+  def test_choose
+    get_as_user :vic, :choose
+    assert_response :success
+    # TODO is there anymore I can test?
+  end
   
   def test_create
     post_as_user :vic, :create, {:list => {:name => 'new list', :details => 'new list details', :ex_directory => 1, :image => uploaded_gif(gif_image)}}
@@ -126,6 +132,11 @@ class ListControllerTest < Test::Unit::TestCase
     get :index, :id => list.id
     assert_match @response.headers['Content-Type'], 'text/html; charset=utf-8'
     assert_tag 'meta', :attributes => { 'http-equiv' =>"content-type", :content => "text-html; charset=utf-8"}
+  end
+
+  def test_index_as_user
+    get_as_user :vic, :index, {:id => lists(:series).id}
+    assert_response :success
   end
   
   def test_must_be_logged_in_for_destroy

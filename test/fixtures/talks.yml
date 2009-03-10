@@ -62,3 +62,10 @@ talk_in<%= month %>:
   start_time: <%= Time.local(Time.now.year,month,1,0,0).strftime("%Y-%m-%d %H:%M:%S") %>
   end_time: <%= Time.local(Time.now.year,month,1,1,0).strftime("%Y-%m-%d %H:%M:%S") %>    
 <% end %>
+crosses_midnight:
+  id: 20
+  title: The date changes during this talk
+  venue_id: 5
+  series_id: 9
+  start_time: <%= Time.local(Time.now.year+1,2,13,22,0).strftime("%Y-%m-%d %H:%M:%S") %>
+  end_time:   <%= Time.local(Time.now.year+1,2,14,1,0).strftime("%Y-%m-%d %H:%M:%S") %>    

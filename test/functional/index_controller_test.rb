@@ -13,6 +13,12 @@ class IndexControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
   end
 
+  def test_talks
+    get :talks
+    assert_response :success
+    # TODO put talks fixtures in, and check results
+  end
+
   def test_venues
     get :venues
     assert_response :success
@@ -57,6 +63,34 @@ class IndexControllerTest < Test::Unit::TestCase
     get :dates, :year => 2005, :month => 3, :day => 12
     time = assigns(:time)
     assert_equal Time.local(2005,3,12), time
+  end
+
+  def test_new
+    get :talks, :letter => 'new'
+    assert_response :success
+    get :venues, :letter => 'new'
+    assert_response :success
+    get :lists, :letter => 'new'
+    assert_response :success
+    get :users, :letter => 'new'
+    assert_response :success
+    get :dates, :letter => 'new'
+    assert_response :success
+    # TODO check results
+  end
+
+  def test_updated
+    get :talks, :letter => 'updated'
+    assert_response :success
+    get :venues, :letter => 'updated'
+    assert_response :success
+    get :lists, :letter => 'updated'
+    assert_response :success
+    get :users, :letter => 'updated'
+    assert_response :success
+    get :dates, :letter => 'updated'
+    assert_response :success
+    # TODO check results
   end
 
 end

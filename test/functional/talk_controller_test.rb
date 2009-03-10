@@ -61,6 +61,13 @@ class TalkControllerTest < Test::Unit::TestCase
     assert_template 'index'
     check_assigns_correctly talk
   end
+
+  def test_index_as_user
+    get :index, {:id => talk.id}, { :user_id => not_a_manager.id }
+    assert_response :success
+    assert_template 'index'
+    check_assigns_correctly talk
+  end
   
   def test_vcal
     talk.title = talk.abstract = "Does ical correctly escape ,;\\

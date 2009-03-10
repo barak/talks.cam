@@ -84,6 +84,15 @@ class ListListTest < Test::Unit::TestCase
     assert_equal 1, lists(:three).children.size
     assert_equal 1, lists(:three).children.direct.size
   end
+
+  def test_add_children_of_child_to_parents_of_parent
+    # 3->2 1->4 then 2->1 chains all four together
+    lists(:one).add(lists(:four))
+    lists(:two).add(lists(:one))
+
+    # FIXME don't just get coverage, check it's actually correct!
+    assert_equal 1, 1
+  end
   
   def test_remove_children
     test_recursion_block # 3 -> 2 -> 1 , no recursion any more
