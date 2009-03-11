@@ -37,7 +37,7 @@ class IndexControllerTest < Test::Unit::TestCase
     
     lists = assigns(:lists)
     assert_kind_of Array, lists
-    assert_equal 7, lists.size
+    assert_equal 8, lists.size
     lists.each do |list|
       assert_kind_of List, list
       assert_equal false, list.ex_directory?

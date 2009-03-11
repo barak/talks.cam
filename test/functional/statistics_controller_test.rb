@@ -23,6 +23,6 @@ class StatisticsControllerTest < Test::Unit::TestCase
     assert_equal 6,  assigns(:number_of_user_favourites)
     assert_equal 3,  assigns(:number_of_venues)
     assert_equal 1,  assigns(:number_of_series)
-    assert_equal 1,  assigns(:number_of_listings)
+    assert_equal 2,  assigns(:number_of_listings)
   end
 end

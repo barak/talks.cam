@@ -5,6 +5,9 @@ require 'custom_view_controller'
 class CustomViewController; def rescue_action(e) raise e end; end
 
 class CustomViewControllerTest < Test::Unit::TestCase
+
+  fixtures :lists, :custom_views
+
   def setup
     @controller = CustomViewController.new
     @request    = ActionController::TestRequest.new
@@ -15,4 +18,17 @@ class CustomViewControllerTest < Test::Unit::TestCase
     get :update
     assert_response 404
   end
+
+  def test_legacy
+    get :old_embed_feed, :id => 13
+    assert_redirected_to list_url(:action => 'old_talks', :showvenues => 1, :showimg => 1, :showseries => 1, :layout => 'embed')
+
+    get :old_show_listing, :id => 24
+    assert_redirected_to list_url(:id => 5588, :action => 'index')
+
+    get :old_show_series, :id => 22
+    assert_redirected_to list_url(:id => 5354, :action => 'index')
+
+  end
+
 end

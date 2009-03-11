@@ -3,3 +3,10 @@ first:
   id: 1
 another:
   id: 2
+  old_id: "13"
+  view_parameters: 
+    action: old_talks
+    showvenues: "1"
+    showimg: "1"
+    showseries: "1"
+    layout: embed

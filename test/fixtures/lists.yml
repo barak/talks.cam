@@ -45,3 +45,13 @@ cavendish:
     Pippard Lecture Theatre.</p>"
   type: Series
   id: "5354"
+haberdash:
+  name: Haberdash Sewing Society
+  ex_directory: "0"
+  old_id: "24"
+  details: This lecture series is attended by all researchers in the Department of Sewing. Lectures usually take place alternate Wednesdays at 4.15pm in the Pippard Lecture Theatre.
+  details_filtered: "<p>This lecture series is attended by all researchers in the Department of
+    Sewing. Lectures usually take place alternate Wednesdays at 4.15pm in the
+    Pippard Lecture Theatre.</p>"
+  type: Listing
+  id: "5588"
