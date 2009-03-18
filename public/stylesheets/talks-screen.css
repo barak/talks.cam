@@ -24,6 +24,18 @@ html, body {
 	h1 a, h1 a:visited, h2 a, h2 a:visited {
 		color: #990000;
 		}
+
+	h1.index {
+	  color: #003399;
+	  border-bottom: 0;
+	  background-color: #ccc;
+	  padding: 3px;
+	  text-align: center;
+	}
+	h1.index a, h1.index a:visited {
+	  color: #003399;
+	}
+	
 	
 	h3, h4 {
 		font-weight: bold;

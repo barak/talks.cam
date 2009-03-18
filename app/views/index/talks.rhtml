@@ -1,4 +1,10 @@
+<% if params[:letter] == 'new' %>
+<h1>Talks recently added</h1>
+<% elsif params[:letter] == 'updated' %>
+<h1>Talks recently updated</h1>
+<% else %>
 <h1>Talks starting with <%= params[:letter ]%></h1>
+<% end %>
 
 <%= render :partial => "selector" %>
 

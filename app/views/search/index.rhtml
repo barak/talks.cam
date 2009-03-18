@@ -9,6 +9,8 @@
 </div>
 <% end %>
 
+<h1 class="index"><%= link_to "All of Today's Talks", date_index_url %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to "Browse by Date", date_index_url %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to "Recently Added", index_url(:action => 'talks', :letter => 'new') %></h1>
+
 <h1><%= link_list @featured_list %></h1>
 
 <% @featured_lists.each do |list| %>
