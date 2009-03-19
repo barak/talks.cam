@@ -13,9 +13,15 @@ module ShowHelper
   end
   
   def archive_link
-    count = "#{pluralize( @list.talks.count( :distinct => true, :select => 'talk_id', :conditions => ['start_time < ?', Time.now.at_beginning_of_day ] ), 'talk')} in the archive"
+    max = 500
+    countno = @list.talks.count( :distinct => true, :select => 'talk_id', :conditions => ['start_time < ?', Time.now.at_beginning_of_day ] )
+    count = "#{pluralize(countno, 'talk')} in the archive"
     unless request.request_uri == archive_url( :id => @list.id, :only_path => true  )
-      link_to count, archive_url( :id => @list.id )
+      if countno > max && request.request_uri != archive_url( :id => @list.id, :limit => max, :only_path => true )
+        link_to count+": show first #{max}", archive_url( :id => @list.id, :limit => max )
+      else
+        link_to count+"#{ countno > max ? ': show all (slow!)' : '' }", archive_url( :id => @list.id )
+      end
     else
        "<b>#{count}</b>"
     end
