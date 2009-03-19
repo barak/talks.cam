@@ -19,14 +19,15 @@
 <table width='100%'>
 	<tr>
 		<td  width='50%'>
-			<h2>Other views</h2>
+			<h2>Other views and ways to subscribe</h2>
 			<ul>
 				<li><%= link_to 'Create Custom View', :controller => 'custom_view', :action => 'index', :list => @list %></li>
-				<li><%= link_to 'Plain text', list_url(:id => @list, :action => 'text') %></li>
 				<li><%= link_to 'Subscribe using ical/vcal', :controller => 'show', :action => 'ics', :id => @list, :only_path => false, :protocol => 'webcal://'   %> (<%= document 'Help with icalendar' %>)</li>
+			        <li><%= link_to 'Subscribe to RSS feed', list_url(:id => @list, :action => 'rss' )%><br/> - <i>please read <%= link_to "notes", document_url(:name => 'RSS feeds') %> first</i></li>
+				<li>Manage e-mail reminders<br/> - <i>see link at top of page</i></li>
+				<li><%= link_to 'Plain Text View', list_url(:id => @list, :action => 'text') %></li>
 			</ul>
 			<p>You can include this list in your own website. Read the <%= document 'syndicating talks', false, 'Instructions on how to include a list in your site' %> and then click on 'Create Custom View' above to get started.</p>
-			<p>There is an <%= link_to 'RSS feed', list_url(:id => @list, :action => 'rss' )%> but it is buggy (character encoding issues).</p>
 		</td>
 		<td width='50%'>
 			<h2>List Managers</h2>

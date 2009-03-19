@@ -1,6 +1,8 @@
 <h2>Information on</h2>
+<%= link_to 'Subscribing to talks'+arrow,
+document_url(:name => 'Help with icalendar')%>
 <%= document 'Finding a talk', true %>
 <%= document 'Adding a talk', true %>
-<%= document 'Syndicating talks', true %>
-<%= document 'Who we are', true %>
-<%= link_to 'Everything else'+arrow, document_url(:name => 'documentation') %>
+<%= link_to 'Disseminating talks'+arrow,
+document_url(:name => 'Syndicating talks') %>
+<%= link_to 'Help and Documentation'+arrow, document_url(:name => 'documentation') %>
