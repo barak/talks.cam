@@ -1,6 +1,8 @@
 <h1>Create a new list</h1>
 
-<p>Please only add an existing series to talks.cam if you are the actual organiser of the series, or have first asked their permission.</p>
+<div class="column">
+<p class="createwarn">Please add an existing series to talks.cam <b><i>only</i></b> if you are the <b><i>actual organiser</i></b> of the series, or have first <i>asked their permission</i>. Talks.cam will show <i>you</i> as the contact person for this list, given as a link to <%= link_to 'your talks.cam profile', user_url(:id => User.current.id) %>.</p>
+</div>
 
 <% form_tag( {:action => 'create'}, :multipart => true, :id => 'editlist') do %>
 <%= render :partial => 'list_details' %>

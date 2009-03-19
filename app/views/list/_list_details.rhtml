@@ -4,7 +4,12 @@
 <%= text_area :list, :details %>
 <h3>Image or logo</h3>
 <%= file_field :list, :image %>
+<div class="column">
 <p>The system will automatically re-size the image, but if you can use one that is as close to 128x128 pixels it will work best.  The image may be of tif, gif, png or jpg format. Please do not try and upload images larger than 1 megabyte in size.</p>
 <p><%= logo @list, :medium %><%= logo @list, :small %></p>
-<p><%= check_box :list, :ex_directory %> Will not appear in the index or search results</p>
+<p><%= check_box :list, :ex_directory %> If checked, will not appear in the
+index or search results, but will still be found by Google and similar sites.
+(<%= link_to 'Tell me more', document_url(:name => 'Privacy and Publicity') %>)
+</p>
+</div>
 <p><%= submit_tag 'Save' %>  or <%= link_to 'Cancel', @list.id ? list_details_url(:action => 'edit', :id => @list.id) : home_url %></p>	

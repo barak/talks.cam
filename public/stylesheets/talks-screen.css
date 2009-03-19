@@ -224,9 +224,17 @@ html, body {
 	margin: 12px 0 12px 0; 
 	width: 100%; 
 	}
+
+div.column {
+	width: 500px;
+}
+p.createwarn {
+	background-color: #ff9999;
+	padding: 5px;
+}
 	
 /*footer style (to be applied to paragraph)*/
-.footer, .rfooter {
+.footer, .cfooter, .rfooter {
 	font-size: 80%; 
 	margin: 6px 0 6px  0;
 }
@@ -235,6 +243,9 @@ html, body {
 	}
 	.rfooter {
 		float: right;
+	}
+	.cfooter {
+		text-align: center;
 	}
 
 /** General settings for left column**/

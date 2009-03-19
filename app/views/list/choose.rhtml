@@ -1,6 +1,7 @@
 <h1>Which list would you like to add a talk to?</h1>
 
-<p>Please only add an existing talk to talks.cam if you are the actual organiser of the talk or series, or have first asked their permission.</p>
+<div class="column">
+<p class="createwarn">Please add an existing talk to talks.cam <b><i>only</i></b> if you are the <b><i>actual organiser</i></b> of the talk or series, or have first <i>asked their permission</i>.</p>
 
 <p>Each talk can be part of many lists, but it needs one as its main 'home'.  This is usually a list that represents its series.</p>
 <ul id='lists'>
@@ -8,9 +9,15 @@
 	<li><%= render :partial => 'list/add_list' %></li>
 </ul>
 
-<p>If you want to practice adding a talk to a series that no-one else sees,
+<p>If you want to practice adding a talk to a series that fewer people see,
 <% if User.current.personal_list %>
 you can add it to <%=link_to User.current.personal_list.name, talk_url(:action => 'edit', :list_id => User.current.personal_list.id )%>.
+<br/>
+Please note that although your personal list will not appear in the index or search results, it will still be found by Google and similar sites.
+(<%= link_to 'Tell me more', document_url(:name => 'Privacy and Publicity') %>)
 <% else %>
-you can add it to your personal list. Unfortunately you appear to have deleted it; to get your personal list re-instated, please contact webmaster@talks.cam.ac.uk.
-<% end %></p>
+you can add it to your personal list. Unfortunately you appear to have deleted it; to get your personal list re-instated, please
+<%= link_to 'Contact Us', document_url(:name => 'Contact') %>.
+<% end %>
+</p>
+</div>

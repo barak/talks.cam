@@ -1,11 +1,14 @@
 <!-- footer -->
 <div id="bottombgline" class='line'>&nbsp;</div>
-<p class="footer">&copy; 2006 Talks.cam, University of Cambridge. <a href="mailto:webmaster@talks.cam.ac.uk">webmaster@talks.cam.ac.uk</a>.<br />
+<p class="cfooter">&copy; 2006-2009 Talks.cam, University of Cambridge. <%=
+link_to 'Contact Us', document_url(:name => 'Contact') %>
+ | <%= link_to 'Help and Documentation', document_url(:name => 'Documentation') %>
+ | <%= document 'Privacy and Publicity' %>
+<br />
 <!--If you wish to give level of conformance after testing, edit this and uncomment it-->
 <!--
 <br />
 <a href="http://www.w3.org/WAI/WCAG1AAA-Conformance">WAI AAA conformant</a>
 --></p>
-<p class="rfooter"><a href='<%= home_url %>changes.txt'>Changes to talks.cam</a>&nbsp;|&nbsp;<%= document 'privacy and publicity' %>&nbsp;|&nbsp;<%= document 'Accessibility policy' %></p>
 <!--  end footer -->
 <!-- Google Analytics code appended here upon deployment -->

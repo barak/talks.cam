@@ -9,7 +9,10 @@
 	<li><%= link_to 'Remove a talk that has been included in this one', include_talk_url(:action => 'edit', :list_id => @list.id )%></li>
 </ul>
 <ul>
-	<li><%= link_to 'Create a new talk on this list', talk_url(:action => 'new', :list_id => @list.id )%></li>
+	<li><%= link_to 'Create a new talk on this list', talk_url(:action => 'new', :list_id => @list.id )%><br/>
+ - <b><i>only</i></b> if you are the actual organiser of the talk or series,<br/>
+ or have first asked their permission
+	</li>
 </ul>
 <ul>
 	<li><%= link_to 'Delete this list', list_details_url(:action => 'destroy', :id => @list.id )%></li>
