@@ -26,14 +26,14 @@ html, body {
 		}
 
 	h1.index {
-	  color: #003399;
-	  border-bottom: 0;
-	  background-color: #ccc;
-	  padding: 3px;
-	  text-align: center;
-	}
+                border-top:2px solid #ccc;
+                color:#ddd;
+                margin-bottom:25px;
+                margin-top:20px;
+                padding:4px;
+        }
 	h1.index a, h1.index a:visited {
-	  color: #003399;
+	  color: #333;
 	}
 	
 	
