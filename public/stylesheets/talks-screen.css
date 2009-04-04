@@ -32,7 +32,7 @@ html, body {
                 margin-top:20px;
                 padding:4px;
         }
-	h1.index a, h1.index a:visited {
+	h1.index a, h1.index a:visited, h1.index a:link:hover, h1.index a:visited:hover {
 	  color: #333;
 	}
 	
