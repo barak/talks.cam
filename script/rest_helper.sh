@@ -2,7 +2,7 @@
 
 # This is used to get and put data from the command line
 
-AUTH="tamc:vL8h2K0rsZ"
+AUTH="tamc:zzzzzzzzzz"
 BASE="http://localhost:3000"
 METHOD=$1
 DEST="$BASE$2"
