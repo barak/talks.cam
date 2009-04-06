@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talk>
+<!--
+
+NOTE: This rudimentary XML interface is still experimental and not very robust,
+and hence is not ready for widespread adoption at the moment.
+
+To create a new talk, edit and send this XML document as a:
+
+* HTTP POST request
+* to http://(hostname)/talk/update
+* and include the following HTTP headers:
+Content-Type: application/xml
+Accept: application/xml
+* See below for how to send your username and password (authenticate)
+
+Please note that ALL fields are mandatory, except "special-message".
+Make sure that the document is well-formed XML before POSTing.
+
+The response should either be a redirection to the succesfully created
+talk, or else a redirection to the login page if the credentials were
+wrong.
+
+== AUTHENTICATION ==
+
+To authenticate, you can
+
+1) EITHER use "Basic Authentication" (non-Raven ONLY)
+  see http://en.wikipedia.org/wiki/Basic_access_authentication
+
+2) OR send a cookie, copied from your browser; e.g. send a header like this:
+Cookie: _session_id=fb6b2d8c80196499f2196446b5a1964f
+
+Session Cookies will work with both Raven and non-Raven logins, so long
+as you are still logged-in in your browser, and your session hasn't expired.
+
+* IMPORTANT NOTE ABOUT RAVEN *
+
+Basic Authentication will NOT work with Raven logins, and furthermore will NOT
+be transmitted securely, so don't risk having your Raven details intercepted by
+accidentally sending them using Basic Auth!
+
+-->
+
+<!-- The fields below are listed in the same order as on
+the equivalent "Add a new talk" web page - further documentation
+is available on that web form by clicking in each field -->
+
+  <!-- Either exact spelling of existing series/list name,
+       or name of a new series/list to be created -->
+  <series_name>A very interesting seminar series TEST</series_name>
+
+  <title>A new talk title</title>
+
+  <abstract>Information about the talk,
+which can include basic formatting like _italic_ and *bold*.
+  </abstract>
+
+  <speaker-email>a.speaker@talks.cam.ac.uk</speaker-email>
+  <!-- NB this probably won't send an email to the speaker? -->
+
+  <name-of-speaker>Wilma E. B. Tester, University of Cambridge</name-of-speaker>
+
+  <!-- NB The XML upload feature does not support images -->
+
+  <organiser_email>organiser-of-exciting-talks@talks.cam.ac.uk</organiser_email>
+
+  <!-- Special Message is Optional -->
+  <special-message>Note unusual venue</special-message>
+
+  <!-- Either exact spelling of existing Venue name,
+       or name of a new Venue -->
+  <venue-name>New Test Venue</venue-name>
+
+  <date-string>2012/08/08</date-string>
+  <start-time-string>11:00</start-time-string>
+  <end-time-string>12:30</end-time-string>
+
+  <!-- NB always sets ex-directory=false, i.e. indexed by talks.cam -->
+
+</talk>
