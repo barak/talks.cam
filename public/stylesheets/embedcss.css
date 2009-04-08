@@ -19,7 +19,7 @@ div.simplewithlogo a:hover 	{ text-decoration:underline; color: #003399;}
 div.index a {text-decoration:none; }
 div.index a:link {color: #003399;}
 div.index a:visited {color: #003399;}
-div.index a:link:hover, a:visited:hover { color: #cc3333; text-decoration: underline; }
+div.index a:link:hover, div.index a:visited:hover { color: #cc3333; text-decoration: underline; }
 div.index div.listdetail {display: none }
 div.index p.actions { display: none }
 div.index p.count { display: none }
@@ -76,7 +76,7 @@ div.oneday a:visited { text-decoration:none; color: #000;}
 div.oneday a:hover 	{ text-decoration:underline; color: #003399;}
 
 div.asnc_regular {background-color: #ffffff; color: #000000;}
-div.asnc_regular p, ul, ol, li, table, td {font-family: Arial, Geneva, sans-serif;}
+div.asnc_regular p, div.asnc_regular ul, div.asnc_regular ol, div.asnc_regular li, div.asnc_regular table, div.asnc_regular td {font-family: Arial, Geneva, sans-serif;}
 div.asnc_regular a {text-decoration: none;}
 div.asnc_regular a:link {color: black }
 div.asnc_regular a:visited {color: black }
@@ -102,11 +102,11 @@ div.cam_events a:hover { text-decoration: underline; font-family: Arial, Helveti
 div.cam_events a:active { color: #ff0000; text-decoration: none; font-family: Arial, Helvetica, sans-serif; }
 div.cam_events small.venue a { color:black; }
 
-div.zoology p, ul, ol, li, table, td, dt, dd {font-family: Arial, Helvetica, sans-serif; }
+div.zoology p, div.zoology ul, div.zoology ol, div.zoology li, div.zoology table, div.zoology td, div.zoology dt, div.zoology dd {font-family: Arial, Helvetica, sans-serif; }
 div.zoology a {text-decoration:none; color: black; }
 div.zoology a:link {color: black; font-family: Arial, Helvetica, sans-serif;}
 div.zoology a:visited {color: black; font-family: Arial, Helvetica, sans-serif;}
-div.zoology a:link:hover, a:visited:hover {text-decoration: underline; font-family: Arial, Helvetica, sans-serif;}
+div.zoology a:link:hover, div.zoology a:visited:hover {text-decoration: underline; font-family: Arial, Helvetica, sans-serif;}
 div.zoology a[href]:active {color: black; font-family: Arial, Helvetica, sans-serif;}
 div.zoology .bigb {font-size: 110%; font-weight: bold;} 
 div.zoology p { }
