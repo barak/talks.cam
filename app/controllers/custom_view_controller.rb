@@ -63,6 +63,9 @@ class CustomViewController < ApplicationController
   helper_method :url_for_view
   
   def url_for_view( custom_view, extra_options = {} )
+    unless ( custom_view != nil )
+      return list_url(:id => 'notfound404')
+    end
     list_url( options_hash( custom_view, { :only_path => false,:id => custom_view.list_id }.merge(extra_options)) )
   end
   
