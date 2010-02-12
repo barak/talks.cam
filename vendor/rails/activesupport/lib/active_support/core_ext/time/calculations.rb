@@ -156,11 +156,14 @@ module ActiveSupport #:nodoc:
         end
         alias :at_beginning_of_month :beginning_of_month
         
-        # Returns a new Time representing the end of the month (last day of the month, 0:00)
+        # ORIGINALLY: Returns a new Time representing the end of the month (last day of the month, 0:00)
+        # Returns a new Time representing the end of the month (last second of the day of the month, i.e. 23:59:59)
+# PATCHING THIS TO BE MORE INTUITIVE AS PER NEWER RAILS
+# see http://dev.rubyonrails.org/changeset/8198 and http://dev.rubyonrails.org/ticket/10200
         def end_of_month
           #self - ((self.mday-1).days + self.seconds_since_midnight)
           last_day = ::Time.days_in_month( self.month, self.year )
-          change(:mday => last_day,:hour => 0, :min => 0, :sec => 0, :usec => 0)
+          change(:mday => last_day,:hour => 23, :min => 59, :sec => 59, :usec => 0)
         end
         alias :at_end_of_month :end_of_month
 		  
