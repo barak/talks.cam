@@ -104,3 +104,42 @@ class ActionMailer::Base
     end
   end
 end
+
+# FIXME yuck, Ruby version incompatibility
+# probably caused by Rails 1.2.3 adding String#chars
+# and then Ruby catching up and adding its own one by 1.8.7
+# http://old.teabass.com/undefined-method-for-enumerable/
+#unless '1.9'.respond_to?(:force_encoding)
+if RUBY_VERSION=='1.8.7'
+  String.class_eval do
+    begin
+      remove_method :chars
+    rescue NameError
+        # OK
+    end
+  end
+end
+
+# FIXME yuck, Ruby version incompatibility
+# I've chosen to roll back to 1.8.5; but in any case
+# 1.8.7 apparently had a known bug too, which didn't get fixed until 1.9?
+# http://redmine.ruby-lang.org/issues/show/2147
+# http://svn.ruby-lang.org/cgi-bin/viewvc.cgi/trunk/lib/pp.rb?r1=25122&r2=25121&pathrev=25122
+if RUBY_VERSION=='1.8.7'
+  class PP < PrettyPrint
+    module ObjectMixin
+  
+  # 1.8.5 version
+      def pretty_print(q)
+        if /\(Kernel\)#/ !~ method(:inspect).inspect
+          q.text self.inspect
+        elsif /\(Kernel\)#/ !~ method(:to_s).inspect && instance_variables.empty?
+          q.text self.to_s
+        else
+          q.pp_object(self)
+        end
+      end
+  
+    end
+  end
+end

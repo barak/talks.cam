@@ -67,6 +67,7 @@ class Talk < ActiveRecord::Base
   
   before_save :update_html_for_abstract
   before_save :check_if_venue_or_series_changed
+  before_save :ensure_speaker_initialized
   after_validation :update_start_and_end_times_from_strings
   after_save  :add_to_lists
   after_save  :possibly_send_the_speaker_an_email
@@ -142,13 +143,32 @@ class Talk < ActiveRecord::Base
     speaker ? speaker.email : ""
   end
   
+# FIXME for some reason this broke in Ruby 1.8.7
+# AND FIXME anyway, is this really the best place to initialize / update Talk.speaker??
+# speaker_email= relies on name_of_speaker being initialized first
+# in 1.8.5 this seemed to always be true (!?!)
+# in 1.8.7 it isn't :(
+# The first time speaker_email is called, it sets speaker.name and speaker.affiliation
+# to ""; then when before_save calls ensure_speaker_initialized, name_of_speaker
+# is now initialized and we can fill in speaker.name and speaker.affiliation
   def speaker_email=(email)
     return if email.blank?
     self.speaker = User.find_or_create_by_email(email)
-    return if speaker.name && speaker.affiliation
-    speaker.name ||= speaker_name 
-    speaker.affiliation ||= speaker_affiliation
+    return if speaker.last_login # don't mess with real users' input
+    if !speaker.name || (speaker.name == "")
+      speaker.name = speaker_name
+    end
+    if !speaker.affiliation || (speaker.affiliation == "")
+      speaker.affiliation = speaker_affiliation
+    end
     speaker.save
+  end
+
+  def ensure_speaker_initialized
+    # Can't say speaker_email=speaker_email as this gets optimised out
+    # Have to do this instead to force it to call speaker_email again
+    self.send("speaker_email=", speaker_email)
+    return
   end
   
   # For security
