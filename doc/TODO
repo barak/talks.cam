@@ -1,0 +1,86 @@
+Changs @talks.cam and cam.ac.uk
+from grep:
+se309019@talks:/var/www/talks.cam$ git grep @talks.cam
+app/controllers/custom_view_controller.rb:      render :text => "If you see this
+app/models/mailer.rb:  FROM = 'noreply@talks.cam.ac.uk'
+app/views/mailer/daily_list.text.plain.rhtml:If you have any questions please co
+app/views/mailer/list_tickle.rhtml:If you think that this e-mail was sent inappr
+app/views/mailer/password.rhtml:webmaster@talks.cam.ac.uk
+app/views/mailer/speaker_invite.rhtml:webmaster@talks.cam.ac.uk
+app/views/mailer/talk_tickle.rhtml:If you think that this e-mail was sent inappr
+app/views/mailer/weekly_list.text.plain.rhtml:If you have any questions please c
+config/environment.rb:ExceptionNotifier.exception_recipients = %w( BUGS@talks.ca
+config/environment.rb:ExceptionNotifier.sender_address =%( "talks.cam" <BUGS_SEN
+config/environment.rb:    IO.popen("/usr/sbin/sendmail -i -t -fBUGS_ENVELOPE@tal
+script/talk-upload-example.rb:organiser_email = "organiser-of-interesting-semina
+script/talk-upload-example.rb:speaker_email = "a.speaker@talks.cam.ac.uk"
+script/talk-upload-example.xml:  <speaker-email>a.speaker@talks.cam.ac.uk</speak
+script/talk-upload-example.xml:  <organiser_email>organiser-of-exciting-talks@ta
+test/fixtures/tickles.yml:  recipient_email: person1@talks.cam.ac.uk
+test/fixtures/tickles.yml:  sender_email: person2@talks.cam.ac.uk
+test/fixtures/tickles.yml:  recipient_email: person1@talks.cam.ac.uk
+test/fixtures/tickles.yml:  sender_email: person2@talks.cam.ac.uk
+test/fixtures/users.yml:  email: vic@talks.cam
+test/fixtures/users.yml:  email: jim@talks.cam
+test/fixtures/users.yml:  email: john@talks.cam
+test/fixtures/users.yml:  email: administrator@talks.cam
+
+se309019@talks:/var/www/talks.cam$ git grep cam.ac.uk
+app/controllers/custom_view_controller.rb:      render :text => "If you see this message and you aren't a se
+app/models/mailer.rb:  default_url_options[:host] = HOST = 'talks.cam.ac.uk'
+app/models/mailer.rb:  FROM = 'noreply@talks.cam.ac.uk'
+app/models/mailer.rb:  def password(user, url = "http://talks.cam.ac.uk/login/other_users")
+app/models/user.rb:    User.create! :crsid => crsid, :email => "#{crsid}@cam.ac.uk", :affiliation => 'Univer
+app/models/user.rb:    return unless email =~ /^([a-z0-9]+)@cam.ac.uk$/i
+app/views/custom_view/embed_example.rhtml:              <p>This page illustrates how to get live content fro
+app/views/custom_view/embed_example2.rhtml:<link rel="stylesheet" type="text/css" href="http://www.asnc.cam.
+app/views/custom_view/embed_example2.rhtml:<p class='warn'>NOTE THIS PAGE IS NOT REAL. It is a demonstration
+app/views/custom_view/embed_example2.rhtml:      <p align="center"><a href="http://www.cam.ac.uk/"> <img src
+app/views/custom_view/embed_example2.rhtml:        <a href="index.htm"> <img src="http://www.asnc.cam.ac.uk/
+app/views/custom_view/embed_example2.rhtml:  <a href="mailto:asnc@hermes.cam.ac.uk">Webmaster</a></p>
+app/views/custom_view/embed_example3.rhtml:  <link rel="stylesheet" type="text/css" href="http://www.admin.c
+app/views/custom_view/embed_example3.rhtml:  <link type="application/rss+xml" rel="alternate" title="Univers
+app/views/custom_view/embed_example3.rhtml:<p class='warn'>NOTE THIS PAGE IS NOT REAL. It is a demonstration
+app/views/custom_view/embed_example3.rhtml:    <td bgcolor="#0099CC" width="100%" class="null"><img src="htt
+app/views/custom_view/embed_example3.rhtml:       <td class="null"><a href="http://www.cam.ac.uk/"><img src=
+app/views/custom_view/embed_example3.rhtml:       <td class="null"><a href="http://www.admin.cam.ac.uk/globa
+app/views/custom_view/embed_example3.rhtml:       <td class="null"><a href="http://www.cam.ac.uk/global/az.h
+app/views/custom_view/embed_example3.rhtml:       <td class="null"><a href="http://www.cam.ac.uk/global/help
+app/views/custom_view/embed_example3.rhtml:    <td bgcolor="#CCCCCC" class="null"><img src="http://www.admin
+app/views/custom_view/embed_example3.rhtml:    <td><a href="http://www.cam.ac.uk"><img src="http://www.admin
+app/views/custom_view/embed_example3.rhtml:    <td bgcolor="#0099CC" colspan="2" class="null"><img src="http
+app/views/custom_view/embed_example3.rhtml:    <td bgcolor="#CCCCCC" colspan="2" class="null"><img src="http
+app/views/custom_view/embed_example3.rhtml:    <td><a href="http://www.cam.ac.uk/" class="bread">University
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/index.cgi" c
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/archive.cgi"
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/daily/index.
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/index.
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/archiv
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/factsh
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.cam.ac.uk/mediaguide/" class="new
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/factsh
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/events/index
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/contact.html
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/newsfeeds/ev
+app/views/custom_view/embed_example3.rhtml:    <tr><td nowrap="nowrap"><form method="get" action="http://web
+app/views/custom_view/embed_example3.rhtml:        <input type="hidden" name="qp" value="url:www.admin.cam.a
+app/views/custom_view/embed_example3.rhtml:        <input type="text" name="qt" size="12" />&nbsp;<input typ
+app/views/custom_view/embed_example3.rhtml:     <table width="100%" border="0" cellspacing="0" cellpadding="
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
+app/views/custom_view/embed_example3.rhtml:     <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.lib.cam.ac.uk/" class="nav">University L
+app/views/custom_view/embed_example3.rhtml:     <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.fitzmuseum.cam.ac.uk/" class="nav">Fitzw
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
+app/views/custom_view/embed_example3.rhtml:     <a href="http://museum.archanth.cam.ac.uk/" class="nav">Muse
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.classics.cam.ac.uk/museum/" class="nav">
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.hps.cam.ac.uk/whipple/" class="nav">Whip
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.zoo.cam.ac.uk/museum/" class="nav">Unive
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.botanic.cam.ac.uk/" class="nav">Botanic
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gi
