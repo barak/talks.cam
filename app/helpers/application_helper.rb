@@ -1,6 +1,14 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  
+  # Global admin email   added 1st april 2010 by dagda
+  def g_admin_email
+    "dmeenagh@gmail.com" #CHANGEME
+  end
+  # Global Site Name
+  def g_site_name
+    "talks.nuim" #CHANGEME
+  end
+
   def subscribe_by_email_link
    if User.current && ( sub = EmailSubscription.find_by_list_id_and_user_id( @list.id, User.current.id ) )
      link_to 'Halt your e-mail reminders', reminder_url(:action => 'destroy', :id => sub.id )
