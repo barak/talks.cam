@@ -8,7 +8,7 @@
 development:
   adapter: mysql
   database: talks2_development
-  username: talks
+  username: talks2
   password: secret
 
   # Connect on a TCP socket.  If omitted, the adapter will connect on the
@@ -22,7 +22,7 @@ development:
 test:
   adapter: mysql
   database: talks2_testing
-  username: talks
+  username: talks2
   password: secret
 
 production:
