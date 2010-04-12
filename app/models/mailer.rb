@@ -1,7 +1,7 @@
 class Mailer < ActionMailer::Base
   
   include ActionController::UrlWriter
-  default_url_options[:host] = HOST = 'talks.cam.ac.uk'
+  default_url_options[:host] = HOST = 'talks.cam.ac.uk' #TODO
   
   # FIXME: Refactor into class variables and set in environment.rb
   FROM = 'noreply@talks.cam.ac.uk'

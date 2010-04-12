@@ -40,7 +40,7 @@ class CustomViewController < ApplicationController
   
   def update
     unless params[:view_parameters]
-      render :text => "If you see this message and you aren't a search engine, please contact webmaster@talks.cam.ac.uk", :status => 404
+      render :text => "If you see this message and you aren't a search engine, please contact admin_email", :status => 404
       return
     end
     convert_date_parameters    

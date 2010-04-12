@@ -8,6 +8,10 @@ module ApplicationHelper
   def g_site_name
     "talks.nuim" #CHANGEME
   end
+  # Global Site URL
+  def g_site_url
+    "talks.cs.nuim.ie"
+  end
 
   def subscribe_by_email_link
    if User.current && ( sub = EmailSubscription.find_by_list_id_and_user_id( @list.id, User.current.id ) )
