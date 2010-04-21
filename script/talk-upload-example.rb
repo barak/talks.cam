@@ -7,11 +7,11 @@
 # First of all we need a destination
 # talks_url = "0.0.0.0"
 # talks_port = 3000
- talks_url = "talks.cam.ac.uk"
+ talks_url = "talks.cam.ac.uk"#TODO
  talks_port = 80
 
 # Then we need user details (this person must have been registered on talks.cam)
-email = "tamc2@cam.ac.uk"
+email = "tamc2@cam.ac.uk" #TODO
 password = 'not a real password'
 
 # Here are some example details about the talk

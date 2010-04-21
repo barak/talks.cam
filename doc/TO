@@ -1,0 +1,73 @@
+
+root@talks:/var/www/talks.cam# git grep @talks.cam
+app/models/mailer.rb:  FROM = 'noreply@talks.cam.ac.uk'
+config/environment.rb:ExceptionNotifier.exception_recipients = %w( BUGS@talks.cam )
+config/environment.rb:ExceptionNotifier.sender_address =%( "talks.cam" <BUGS_SENDER@talks.cam> )
+config/environment.rb:    IO.popen("/usr/sbin/sendmail -i -t -fBUGS_ENVELOPE@talks.cam","w+") do |sm|
+
+test/fixtures/tickles.yml:  recipient_email: person1@talks.cam.ac.uk
+test/fixtures/tickles.yml:  sender_email: person2@talks.cam.ac.uk
+
+root@talks:/var/www/talks.cam# git grep cam.ac.uk
+app/models/mailer.rb:  default_url_options[:host] = HOST = 'talks.cam.ac.uk' #TODO
+app/models/mailer.rb:  FROM = 'noreply@talks.cam.ac.uk'
+app/models/mailer.rb:  def password(user, url = "http://talks.cam.ac.uk/login/other_users")
+app/models/user.rb:    User.create! :crsid => crsid, :email => "#{crsid}@cam.ac.uk", :affiliation => 'University of Cambridge'
+app/models/user.rb:    return unless email =~ /^([a-z0-9]+)@cam.ac.uk$/i
+
+Not sure what all this does
+app/views/custom_view/embed_example.rhtml:              <p>This page illustrates how to get live content from <a href="http://talks.cam.ac.uk/">talks.cam</a>
+app/views/custom_view/embed_example2.rhtml:<link rel="stylesheet" type="text/css" href="http://www.asnc.cam.ac.uk/asncstyle.css">
+app/views/custom_view/embed_example2.rhtml:<p class='warn'>NOTE THIS PAGE IS NOT REAL. It is a demonstration of talks.cam capabilities. See <a href='http://ww
+app/views/custom_view/embed_example2.rhtml:      <p align="center"><a href="http://www.cam.ac.uk/"> <img src="http://www.asnc.cam.ac.uk/Buttons/identifier.jpg
+app/views/custom_view/embed_example2.rhtml:        <a href="index.htm"> <img src="http://www.asnc.cam.ac.uk/Buttons/asnc-logo.gif" alt="Anglo-Saxon, Norse, an
+app/views/custom_view/embed_example2.rhtml:  <a href="mailto:asnc@hermes.cam.ac.uk">Webmaster</a></p>
+app/views/custom_view/embed_example3.rhtml:  <link rel="stylesheet" type="text/css" href="http://www.admin.cam.ac.uk/global/style/cam_news_style.css" />
+app/views/custom_view/embed_example3.rhtml:  <link type="application/rss+xml" rel="alternate" title="University of Cambridge News Feed" href="http://www.admin
+app/views/custom_view/embed_example3.rhtml:<p class='warn'>NOTE THIS PAGE IS NOT REAL. It is a demonstration of talks.cam capabilities. See <a href='http://ww
+app/views/custom_view/embed_example3.rhtml:    <td bgcolor="#0099CC" width="100%" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" w
+app/views/custom_view/embed_example3.rhtml:       <td class="null"><a href="http://www.cam.ac.uk/"><img src="http://www.admin.cam.ac.uk/global/images/home.gif
+app/views/custom_view/embed_example3.rhtml:       <td class="null"><a href="http://www.admin.cam.ac.uk/global/search/newssearch.html"><img src="http://www.adm
+app/views/custom_view/embed_example3.rhtml:       <td class="null"><a href="http://www.cam.ac.uk/global/az.html"><img src="http://www.admin.cam.ac.uk/global/i
+app/views/custom_view/embed_example3.rhtml:       <td class="null"><a href="http://www.cam.ac.uk/global/help.html"><img src="http://www.admin.cam.ac.uk/global
+app/views/custom_view/embed_example3.rhtml:    <td bgcolor="#CCCCCC" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" heig
+app/views/custom_view/embed_example3.rhtml:    <td><a href="http://www.cam.ac.uk"><img src="http://www.admin.cam.ac.uk/global/images/identifier2.gif" width="1
+app/views/custom_view/embed_example3.rhtml:    <td bgcolor="#0099CC" colspan="2" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" wi
+app/views/custom_view/embed_example3.rhtml:    <td bgcolor="#CCCCCC" colspan="2" class="null"><img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" wi
+app/views/custom_view/embed_example3.rhtml:    <td><a href="http://www.cam.ac.uk/" class="bread">University of Cambridge</a></td>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/index.cgi" class="newsnav">Latest News</a></td></tr>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/archive.cgi" class="newsnav">News Archive</a></td></tr>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/daily/index.cgi" class="newsnav">Media Coverage</a></td></tr>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/index.cgi" class="newsnav">Press Centre</a></td></tr>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/archive.cgi" class="newsnav">Press Release Archive</a></
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/factsheets/" class="newsnav">Factsheets</a></td></tr>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.cam.ac.uk/mediaguide/" class="newsnav">Find an Expert</a></td></tr>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/press/factsheets/vc/" class="newsnav">Vice-Chancellor</a></td>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/events/index.cgi" class="newsnav">Events</a></td></tr>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/contact.html" class="newsnav">Contact Us</a></td></tr>
+app/views/custom_view/embed_example3.rhtml:    <tr><td><a href="http://www.admin.cam.ac.uk/news/newsfeeds/events.xml" class="newsnav"><img src="http://www.adm
+app/views/custom_view/embed_example3.rhtml:    <tr><td nowrap="nowrap"><form method="get" action="http://web-search.cam.ac.uk/query.html">
+app/views/custom_view/embed_example3.rhtml:        <input type="hidden" name="qp" value="url:www.admin.cam.ac.uk/news/" />
+app/views/custom_view/embed_example3.rhtml:        <input type="text" name="qt" size="12" />&nbsp;<input type="image" src="http://www.admin.cam.ac.uk/global/i
+app/views/custom_view/embed_example3.rhtml:     <table width="100%" border="0" cellspacing="0" cellpadding="4" bgcolor="#e6e6e6" ><tr bgcolor="#e6e6e6"><td va
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.lib.cam.ac.uk/" class="nav">University Library</a><br />
+app/views/custom_view/embed_example3.rhtml:     <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.fitzmuseum.cam.ac.uk/" class="nav">Fitzwilliam Museum</a><br />
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <a href="http://museum.archanth.cam.ac.uk/" class="nav">Museum of Archaeology &amp; Anthropology</a><br />
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.classics.cam.ac.uk/museum/" class="nav">Museum of Classical Archaeology</a><br />
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.hps.cam.ac.uk/whipple/" class="nav">Whipple Museum of the History of Science</a><br />
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.zoo.cam.ac.uk/museum/" class="nav">University Museum of Zoology</a><br />
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.botanic.cam.ac.uk/" class="nav">Botanic Garden</a><br />
+app/views/custom_view/embed_example3.rhtml:      <img src="http://www.admin.cam.ac.uk/global/images/pixel.gif" width="1" height="6" alt="" /><br />
+app/views/custom_view/embed_example3.rhtml:     <a href="http://www.plantsci.cam.ac.uk/plantsci/facilities/herbarium.html" class="nav">The Herbarium</a><br />
+
+

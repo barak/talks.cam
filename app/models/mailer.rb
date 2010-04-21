@@ -4,7 +4,7 @@ class Mailer < ActionMailer::Base
   default_url_options[:host] = HOST = 'talks.cam.ac.uk' #TODO
   
   # FIXME: Refactor into class variables and set in environment.rb
-  FROM = 'noreply@talks.cam.ac.uk'
+  FROM = 'noreply@talks.cam.ac.uk' #TODO
 
   
   # The periodic mailshots

@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     user = User.find_by_crsid crsid
     return user if user
     # No email, so create
-    User.create! :crsid => crsid, :email => "#{crsid}@cam.ac.uk", :affiliation => 'University of Cambridge'
+    User.create! :crsid => crsid, :email => "#{crsid}@cam.ac.uk", :affiliation => 'University of Cambridge' #TODO
   end
   
   # Lists that the user is mailed about
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
   end
   
   def update_crsid_from_email
-    return unless email =~ /^([a-z0-9]+)@cam.ac.uk$/i
+    return unless email =~ /^([a-z0-9]+)@cam.ac.uk$/i #TODO
     self.crsid = $1
   end
   

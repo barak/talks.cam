@@ -15,8 +15,8 @@ Because you are the speaker, you can edit the details of this talk by going to:
 
 To log in you will need to enter your e-mail address and a password, both of which have been sent to you in a separate e-mail. If this other e-mail doesn't arrive, please go to:
 
-http://talks.cam.ac.uk/login/send_password?email=<%= @user.email %>
+<%= @g_site_url %>/login/send_password?email=<%= @user.email %>
 
 If you have any problems, please contact <%= @talk.organiser.name %> at <%= @talk.organiser.email %> in the first instance.  
 
-webmaster@talks.cam.ac.uk
+<%= @g_admin_email %>
