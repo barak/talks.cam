@@ -1,3 +1,5 @@
+Updated version in doc folder, file called SETUP
+
 h1. Requirements for talks2.cam
 
 Note that talks.cam has only been tested to work against rails v1.2.3

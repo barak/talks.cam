@@ -16,6 +16,16 @@ module ApplicationHelper
     "http://talks.cs.nuim.ie"
   end
 
+  # Global Org Name
+  def g_org_name
+     "NUIM"
+  end
+  
+  # Global Org URL
+  def g_org_url
+    "http://www.nuim.ie"
+  end
+
   def subscribe_by_email_link
    if User.current && ( sub = EmailSubscription.find_by_list_id_and_user_id( @list.id, User.current.id ) )
      link_to 'Halt your e-mail reminders', reminder_url(:action => 'destroy', :id => sub.id )
