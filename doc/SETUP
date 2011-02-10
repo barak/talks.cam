@@ -1,8 +1,8 @@
 Setup instrucrtions for talks.cam
 =Quick Start Guide
--Get debbien server
+-Get debian server
 -Install Ruby, rails v1.2.3, MySQL and Apachi
--Get the talks.cam floder, (See github instructions)
+-Get the talks.cam folder, (See github instructions)
 -Navigate to the folder
 --type rake db:migrate
 --type ruby script/server
@@ -62,7 +62,7 @@ h2. The database (mysql)
 // check passwords in configeration/database.yml
 
 h2. The webserver
-// i used webRIC ignore this
+// I used webRIC ignore this
 chmod g+w /home/talks2 # Set the permissions
 
 # Can't get apache to work?  Trying lighttpd 
